@@ -8,10 +8,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TestController extends AbstractController
 {
-    #[Route('/admin', name: 'test')]
+    #[Route('/photo', name: 'test')]
     public function test():Response
     {
-        //return new Response('Bonjour');
-        return $this->render('/admin.html.twig');
+        return $this->render('/photo.html.twig');
     }
 }
