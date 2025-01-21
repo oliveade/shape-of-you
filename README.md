@@ -13,8 +13,6 @@ Le site est développé en Symfony, TailwindCSS, avec une intégration IA.
 
 ## Fonctionnalités
 
-### . Prise de photo et détection des élements via IA
-API navigator.mediaDevices.getUserMedia pour activer la caméra de l'utilisateur
 
 ### .
 
