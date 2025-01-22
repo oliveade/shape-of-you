@@ -14,9 +14,9 @@ class ProfileController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         $user = $this->getUser();
-        
+
         return $this->render('profile/index.html.twig', [
-            'Well hi there '.$user->getFirstName()
+            'Well hi there '.$user->getFirstName(),
         ]);
     }
 }
