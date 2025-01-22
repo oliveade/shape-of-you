@@ -14,15 +14,6 @@ class Outfit
     #[ORM\Column]
     private ?int $id = null;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="outfits")
-     * @ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")
-     */
-    private $user;
-    
-    #[ORM\Column]
-    private ?int $utilisateur_id = null;
-
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_creation = null;
 
@@ -32,18 +23,6 @@ class Outfit
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getUtilisateurId(): ?int
-    {
-        return $this->utilisateur_id;
-    }
-
-    public function setUtilisateurId(int $utilisateur_id): static
-    {
-        $this->utilisateur_id = $utilisateur_id;
-
-        return $this;
     }
 
     public function getDateCreation(): ?\DateTimeInterface
