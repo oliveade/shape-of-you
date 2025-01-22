@@ -13,8 +13,13 @@ class Controller extends AbstractController
     {
         return $this->render('/photos.html.twig');
     }
-    #[Route('/', name: 'test')]
+    #[Route('/', name: 'app_index')]
     public function home():Response
+    {
+        return $this->render('/index.html.twig');
+    }
+    #[Route('/accueil', name: 'app_home')]
+    public function darshboardUser():Response
     {
         return $this->render('/home.html.twig');
     }
