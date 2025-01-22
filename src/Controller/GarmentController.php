@@ -1,13 +1,11 @@
 <?php
 namespace App\Controller;
-
 use App\Entity\Garment;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class GarmentController extends AbstractController
 {
@@ -23,11 +21,14 @@ class GarmentController extends AbstractController
             $garment->setStyle($request->request->get('style'));
 
             $imageFile = $request->files->get('imageUrl');
+
+            return $this->redirectToRoute('my_wardrobe');
             if ($imageFile) {
                 $fileName = uniqid().'.'.$imageFile->guessExtension();
-                $imageFile->move($this->getParameter('/public/uploads'), $fileName);
+                $imageFile->move($this->getParameter('uploads_directory'), $fileName);
                 $garment->setImageUrl($fileName);
             }
+
             $garment->setUsers($this->getUser());
 
             $em->persist($garment);
@@ -44,4 +45,14 @@ class GarmentController extends AbstractController
     {
         return $this->render('/garment/add.html.twig');
     }
+
+    #[Route('/my_wardrobe', name: 'my_wardrobe')]
+    public function Wardrobe(EntityManagerInterface $em):Response
+    {
+        $garments = $em->getRepository(Garment::class)->findAll();
+        return $this->render('wardrobe.html.twig',[
+            'garments'=>$garments
+        ]);
+    }
+
 }
