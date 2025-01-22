@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -39,6 +41,17 @@ class User
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_inscription = null;
+
+    /**
+     * @var Collection<int, Garment>
+     */
+    #[ORM\OneToMany(targetEntity: Garment::class, mappedBy: 'users')]
+    private Collection $garments;
+
+    public function __construct()
+    {
+        $this->garments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -101,6 +114,36 @@ class User
     public function setDateInscription(\DateTimeInterface $date_inscription): static
     {
         $this->date_inscription = $date_inscription;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Garment>
+     */
+    public function getGarments(): Collection
+    {
+        return $this->garments;
+    }
+
+    public function addGarment(Garment $garment): static
+    {
+        if (!$this->garments->contains($garment)) {
+            $this->garments->add($garment);
+            $garment->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGarment(Garment $garment): static
+    {
+        if ($this->garments->removeElement($garment)) {
+            // set the owning side to null (unless already changed)
+            if ($garment->getUsers() === $this) {
+                $garment->setUsers(null);
+            }
+        }
 
         return $this;
     }
