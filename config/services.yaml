@@ -1,5 +1,6 @@
 parameters:
-
+    uploads_directory: '%kernel.project_dir%/public/uploads'
+    content_api_key: '%env(CONTENT_API_KEY)%'
 services:
    
     _defaults:
@@ -15,3 +16,6 @@ services:
     App\Services\GoogleVisionService:
         arguments:
             $credentialsPath: '%env(GOOGLE_APPLICATION_CREDENTIALS)%'
+    App\Service\ContentApiService:
+        arguments:
+            $apiKey: '%content_api_key%'

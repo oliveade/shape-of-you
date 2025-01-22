@@ -39,6 +39,7 @@
     "fast-glob": "^3.3.2",
     "fastq": "^1.17.1",
     "fill-range": "^7.1.1",
+    "font-awesome": "^4.7.0",
     "foreground-child": "^3.3.0",
     "fraction.js": "^4.3.7",
     "fsevents": "^2.3.3",
