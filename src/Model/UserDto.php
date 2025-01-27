@@ -14,8 +14,7 @@ class UserDto
         public string $lastName,
 
         #[Assert\GreaterThan(18)]
-        public int    $age,
-    )
-    {
+        public int $age,
+    ) {
     }
 }
