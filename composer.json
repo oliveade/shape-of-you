@@ -9,9 +9,9 @@
         "ext-iconv": "*",
         "doctrine/dbal": "^3.9.4",
         "doctrine/doctrine-bundle": "^2.13.2",
-        "doctrine/doctrine-migrations-bundle": "^3.4",
-        "doctrine/orm": "^3.3.1",
-        "php-cs-fixer/shim": "^3.68.1",
+        "doctrine/doctrine-migrations-bundle": "^3.4.1",
+        "doctrine/orm": "^3.3.2",
+        "php-cs-fixer/shim": "^3.68.5",
         "symfony/console": "7.2.*",
         "symfony/dotenv": "7.2.*",
         "symfony/flex": "^2.4.7",
@@ -24,15 +24,13 @@
         "symfony/resend-mailer": "7.2.*",
         "symfony/runtime": "7.2.*",
         "symfony/security-bundle": "7.2.*",
-        "symfony/stimulus-bundle": "^2.22.1",
         "symfony/twig-bundle": "7.2.*",
-        "symfony/ux-turbo": "^2.22.1",
         "symfony/validator": "7.2.*",
         "symfony/webhook": "7.2.*",
         "symfony/webpack-encore-bundle": "^2.2",
         "symfony/yaml": "7.2.*",
-        "twig/extra-bundle": "^2.12|^3.18",
-        "twig/twig": "^2.12|^3.18"
+        "twig/extra-bundle": "^2.12|^3.19",
+        "twig/twig": "^2.12|^3.19"
     },
     "config": {
         "allow-plugins": {

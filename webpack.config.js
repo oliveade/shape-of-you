@@ -9,12 +9,9 @@ Encore
     .setPublicPath('/build')
     .addEntry('app', './assets/app.js')
     .splitEntryChunks()
-
-    // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
-    .enableStimulusBridge('./assets/controllers.json')
     .enableSingleRuntimeChunk()
 
-  
+
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(Encore.isProduction())
@@ -23,6 +20,16 @@ Encore
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
         config.corejs = '3.38';
+    })
+
+    .configureDevServerOptions(options => {
+        options.liveReload = true;
+        options.static = {
+            watch: false
+        };
+        options.watchFiles = {
+            paths: ['src/**/*.php', 'templates/**/*'],
+        };
     })
 
 ;

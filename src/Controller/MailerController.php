@@ -13,7 +13,7 @@ final class MailerController extends AbstractController
     #[Route('/', name: 'app_mailer')]
     public function index(): Response
     {
-        return $this->render('mailer/index.html.twig', [
+        return $this->render('index.html.twig', [
             'controller_name' => 'MailerController',
         ]);
     }

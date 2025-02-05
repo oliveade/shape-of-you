@@ -2,22 +2,57 @@
 
 {% block title %}Register{% endblock %}
 
-{% block body %}
-    {% for flash_error in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-    {% endfor %}
-
-    <h1>Register</h1>
-
+{% block content %}
     {{ form_errors(form) }}
+    <div class="flex min-h-svh flex-col items-center bg-white justify-center gap-6 p-6 md:p-10">
+        <div class="w-full max-w-sm">
+            <div class="flex flex-col gap-6">
+                {{ form_start(form) }}
+                <div class="flex flex-col gap-6">
 
-    {{ form_start(form) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.plainPassword, {
-        label: 'Password'
-    }) }}
-    {{ form_row(form.agreeTerms) }}
+                    <div class="grid gap-2">
+                        <Label for="email"
+                               class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Email</Label>
+                        <input
+                                type="email"
+                                id="email"
+                                name="{{ field_name(form.email) }}"
+                                required
+                                class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                        />
+                    </div>
 
-    <button type="submit" class="btn">Register</button>
-    {{ form_end(form) }}
+                    <div class="grid gap-2">
+                        <Label for="password"
+                               class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Password</Label>
+                        <input
+                                type="password"
+                                id="password"
+                                name="{{ field_name(form.plainPassword) }}"
+                                autocomplete="new-password"
+                                required
+                                class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                        />
+                    </div>
+
+                    {# If you want to control the URL the user is redirected to on success
+               <input type="hidden" name="_target_path" value="/account"> #}
+
+                    <button type="submit" id="signup"
+                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-black text-white shadow hover:bg-black/90 h-9 px-4 py-2 w-full">
+                        Continue
+                    </button>
+
+                </div>
+
+                <div class="mt-4 text-center text-sm">
+                    Don’t have an account?
+                    <a href="{{ path('app_login') }}" class="underline underline-offset-4">
+                        Sign in.
+                    </a>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
