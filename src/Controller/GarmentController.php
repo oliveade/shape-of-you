@@ -22,12 +22,13 @@ class GarmentController extends AbstractController
 
             $imageFile = $request->files->get('imageUrl');
 
-            return $this->redirectToRoute('my_wardrobe');
+            // return $this->redirectToRoute('my_wardrobe');
             if ($imageFile) {
                 $fileName = uniqid().'.'.$imageFile->guessExtension();
                 $imageFile->move($this->getParameter('uploads_directory'), $fileName);
                 $garment->setImageUrl($fileName);
             }
+            dd($this->getUser());
 
             $garment->setUsers($this->getUser());
 
