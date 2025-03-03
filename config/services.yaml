@@ -13,7 +13,7 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
-    App\Services\GoogleVisionService:
+    App\Service\GoogleVisionService:
         arguments:
             $credentialsPath: '%env(GOOGLE_APPLICATION_CREDENTIALS)%'
     App\Service\ContentApiService:

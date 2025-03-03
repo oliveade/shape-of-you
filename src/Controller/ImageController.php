@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Services\GoogleVisionService;
+use App\Service\GoogleVisionService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\JsonResponse;

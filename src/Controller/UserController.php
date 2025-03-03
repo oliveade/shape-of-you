@@ -31,7 +31,7 @@ class UserController extends AbstractController
     #[Route('/social', name: 'onglet_social')]
     public function Social():Response
     {
-        return $this->render('/home.html.twig');
+        return $this->render('/community/social.html.twig');
     }
    
 }
