@@ -13,7 +13,6 @@ Le site est développé en Symfony, TailwindCSS, avec une intégration IA.
 
 ## Fonctionnalités
 
-### .
 
 ### .
 
