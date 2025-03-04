@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="{{ asset('build/app.css') }}">
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        <script src="{{ asset('build/app.js') }}"></script>
-    </body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mon Projet{% endblock %}</title>
+    {{ encore_entry_link_tags('app') }}
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    {% block navbar %}
+        {% include 'partials/navbar.html.twig' %}
+    {% endblock %}
 
+    <main class="flex-grow">
+        {% block body %}
+        {% endblock %}
+    </main>
+
+    {% block footer %}
+        {% include 'partials/footer.html.twig' %}
+    {% endblock %}
+
+    {{ encore_entry_script_tags('app') }}
+</body>
 </html>
