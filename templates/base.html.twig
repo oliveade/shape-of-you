@@ -1,34 +1,27 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon"
-              href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
 
-        {% block javascripts %}
-        {% endblock %}
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mon Projet{% endblock %}</title>
+    {{ encore_entry_link_tags('app') }}
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    {% block navbar %}
+        {% include 'partials/navbar.html.twig' %}
+    {% endblock %}
+
+    <main class="flex-grow">
         {% block body %}
-            <div class="app">
-                {% block header %}
-                    {{ include('_header.html.twig') }}
-                {% endblock %}
-
-                {% block main %}
-                    <main>
-                        {% block content %}
-                        {% endblock %}
-                    </main>
-                {% endblock %}
-
-                {% block footer %}
-                    {{ include('_footer.html.twig') }}
-                {% endblock %}
-            </div>
         {% endblock %}
-    </body>
+    </main>
+
+    {% block footer %}
+        {% include 'partials/footer.html.twig' %}
+    {% endblock %}
+
+    {{ encore_entry_script_tags('app') }}
+</body>
 </html>
+

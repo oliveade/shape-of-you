@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{ encore_entry_link_tags('app') }} 
+    </head>
+    <body>
+        {% block body %}
+            <div class="bg-blue-500 p-4 rounded">
+                Tailwind CSS fonctionne !
+                <p class="bg-green">test</p>
+            </div>
+        {% endblock %}
+        {{ encore_entry_script_tags('app') }} 
+    </body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Upload file{% endblock %}
+
+{% block body %}
+
+<div class="bg-gray-300">
+    <div class="flex flex-col items-center justify-center min-h-screen py-6">
+        <div class="max-w-xl w-full bg-white rounded-lg shadow-lg p-8">
+            <h1 class="text-2xl font-bold text-gray-700 mb-4 text-center">Uploader une image pour analyse</h1>
+            <p class="text-gray-600 text-center mb-6">Sélectionnez une image de votre garde-robe pour recevoir des suggestions de tenues personnalisées.</p>
+            <form action="/upload" method="POST" enctype="multipart/form-data" class="mt-4">
+                <input type="file" name="image" accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:border-0 file:text-sm file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300" required>
+                <button type="submit" class="mt-4 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105">Analyser</button>
+            </form>
+
+            <div class="mt-8 text-center">
+                <p class="text-sm text-gray-500">En téléchargeant votre image, vous acceptez nos <a href="#" class="text-blue-500 hover:underline">conditions d'utilisation</a>.</p>
+                <p class="text-sm text-gray-500">Pour toute question, contactez-nous à <a href="mailto:olive.ade@eemi.com" class="text-blue-500 hover:underline">support@example.com</a>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

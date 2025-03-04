@@ -19,6 +19,7 @@ Shape of you est une application mobile-first qui a pour objectif d'aider les pe
 
 ## What's included
 
+
 - AI integration
 - Ansible
 - Docker
@@ -27,6 +28,7 @@ Shape of you est une application mobile-first qui a pour objectif d'aider les pe
 - Resend
 - Symfony
 - Tailwind CSS
+
 
 Features include:
 
