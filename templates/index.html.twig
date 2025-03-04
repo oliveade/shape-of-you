@@ -1,33 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EmailController!{% endblock %}
-
+{% block title %}Page d'accueil{% endblock %}
 {% block body %}
-    <style>
-        .example-wrapper {
-            margin: 1em auto;
-            max-width: 800px;
-            width: 95%;
-            font: 18px/1.5 sans-serif;
-        }
-
-        .example-wrapper code {
-            background: darkslategray;
-            padding: 2px 6px;
-        }
-    </style>
-
-    <div class="example-wrapper">
-        {% for flash in app.flashes('success') %}
-            <div style="background-color: darkgreen; font-weight: bold; border-radius: 12px; padding: 10px 12px">
-                {{ flash }}
+<div class="min-h-screen flex flex-col">
+    <header class="flex-1 flex flex-col justify-center items-center bg-gradient-to-r from-blue-500 text-white text-center p-8 pt-3 md:p-6">
+        <h2 class="text-3xl font-bold mb-2">Bienvenue sur Shape Of You</h2>
+        <p class="mb-4">Découvrez une expérience incroyable adaptée à vos besoins.</p>
+        <a href="{{ path('app_home') }}" class="bg-white text-blue-600 py-2 px-4 rounded-full font-semibold hover:bg-gray-200">Commencer</a>
+    </header>
+    <main class="flex-1 container mx-auto p-4">
+        <h3 class="text-xl font-bold mb-4">Nos Services</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="bg-white shadow-lg rounded-lg p-4">
+                <h4 class="font-semibold">Tenues personnalisées</h4>
+                <p class="text-gray-600">Recevez des suggestions de tenues basées sur votre garde-robe actuelle.</p>
+                <a href="" class="text-blue-500 hover:underline">En savoir plus</a>
             </div>
-        {% endfor %}
+            <div class="bg-white shadow-lg rounded-lg p-4">
+                <h4 class="font-semibold">Recherche par filtres</h4>
+                <p class="text-gray-600">Trouvez des vêtements et des tenues avec des filtres personnalisés pour affiner votre recherche.</p>
+                <a href="" class="text-blue-500 hover:underline">En savoir plus</a>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg p-4">
+                <h4 class="font-semibold">Achats en ligne</h4>
+                <p class="text-gray-600">Explorez et achetez des articles de mode via nos partenaires directement depuis l'application.</p>
+                <a href="" class="text-blue-500 hover:underline">En savoir plus</a>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg p-4">
+                <h4 class="font-semibold">Historique des tenues</h4>
+                <p class="text-gray-600">Accédez à l'historique de toutes les tenues que vous avez essayées et sauvegardées.</p>
+                <a href="" class="text-blue-500 hover:underline">En savoir plus</a>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg p-4">
+                <h4 class="font-semibold">Communauté</h4>
+                <p class="text-gray-600">Découvrez les tenues partagées par d'autres utilisateurs et inspirez-vous de leurs choix.</p>
+                <a href="" class="text-blue-500 hover:underline">En savoir plus</a>
+            </div>
+        </div>
+    </main>
+</div>
 
-        <h1>Hello {{ controller_name }}!</h1>
-
-        <a href="{{ path('send_email') }}"
-           style="display: block; text-align: center; text-decoration: none; margin-top: 40px; color: ghostwhite; background-color: darkgoldenrod; border-radius: 12px; padding: 10px 12px">Send
-            an email!</a>
-    </div>
+<script>
+    const menuButton = document.getElementById('menu-button');
+    const menu = document.getElementById('menu');
+    menuButton.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+</script>
 {% endblock %}
+

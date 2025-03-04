@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Tableau de Bord
+{% endblock %}
+
+{% block body %}
+
+<div class="bg-white shadow-md rounded-xl p-4">
+	<ul class="flex flex-wrap justify-center space-x-4 border-b border-gray-200 pb-2">
+		{% set tabs = {
+            'feed': { 'label': 'Fil d\'actualité', 'icon': 'fas fa-stream' },
+            'members': { 'label': 'Membres', 'icon': 'fas fa-users' },
+            'events': { 'label': 'Événements', 'icon': 'fas fa-calendar-alt' },
+            'media': { 'label': 'Médias', 'icon': 'fas fa-photo-video' }
+        } %}
+        {% for key, tab in tabs %}
+            <li>
+                <a href="" 
+                   class="flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300
+                          {# {% if currentTab == key %} #}
+                              bg-blue-500 text-white shadow-lg 
+                          {# {% else %}
+                              text-gray-600 hover:bg-gray-100 hover:text-blue-500
+                          {% endif %}"> #}
+                    <i class="{{ tab.icon }}"></i>
+                    <span class="font-medium">{{ tab.label }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{%endblock%}
