@@ -1,5 +1,6 @@
+{% apply inline_css %}
 <!DOCTYPE html>
-<html>
+    <html lang="">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,29 +10,28 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
         <meta name="x-apple-disable-message-reformatting"/>
+        <title></title>
     </head>
-    <body class="bg-white font-sans">
+        <body style="font-family: Arial, sans-serif;">
         <div class="max-w-xl pt-5 pb-12 mx-auto">
-            <h1 class="text-2xl pt-4">
-                Welcome {{ email.toName }}
-            </h1>
+            <h1>Welcome {{ email.toName }}</h1>
 
-            <section class="py-7">
-                <a href="{{ url('app_login') }}"
-                   class="bg-black rounded-sm font-semibold text-white text-sm no-underline text-center block px-6 py-3">
+            <section>
+                <a href="{{ url('app_login') }}">
                     Login to Shape of You
                 </a>
             </section>
 
-            <p class="mb-4 text-sm">
+            <p>
                 This link and code will only be valid for the next 5 minutes. If you didn't request this email, you can
                 ignore this message.
             </p>
 
-            <p class="mb-4 text-sm">
+            <p>
                 Best,
                 <br/>— The Shape of You team
             </p>
         </div>
     </body>
 </html>
+{% endapply %}
