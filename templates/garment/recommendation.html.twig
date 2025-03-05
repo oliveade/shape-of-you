@@ -4,9 +4,9 @@
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-2xl font-bold mb-6">Votre tenue recommandée</h1>
 
-        {% if outfit is not empty %}
+        {% if selectedGarments is not empty %}
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {% for garment in outfit %}
+                {% for garment in selectedGarments %}
                     <div class="bg-gray-100 shadow-md rounded p-4">
                         <img src="{{ asset('uploads/' ~ garment.imageUrl) }}" alt="{{ garment.name }}" class="w-full h-64 object-cover rounded">
                         <h2 class="text-xl font-bold mt-2">{{ garment.name }}</h2>

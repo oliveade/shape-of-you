@@ -41,7 +41,18 @@ class Garment
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $occasion = null;
 
+    private bool $isShared = false;
 
+    public function isShared(): bool
+    {
+        return $this->isShared;
+    }
+    
+    public function setShared(bool $isShared): self
+    {
+        $this->isShared = $isShared;
+        return $this;
+    }
     public function getId(): ?int
     {
         return $this->id;

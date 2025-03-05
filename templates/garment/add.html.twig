@@ -1,86 +1,76 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container mx-auto px-4 py-8">
-        <h1 class="text-2xl font-bold mb-6">Ajouter un vêtement à ma garde-robe</h1>
-        <form action="{{ path('add-garment') }}" method="POST" enctype="multipart/form-data" class="bg-gray-100 shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            
-            <div class="mb-4">
-                <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nom</label>
-                <input type="text" id="name" name="name" required 
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline" 
-                    placeholder="Entrez le nom du vêtement">
-            </div>
-            <div class="mb-4">
-                <label for="type" class="block text-gray-700 text-sm font-bold mb-2">Type</label>
-                <select name="type" required
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline">
-                    <option>Combinaison</option>
-                    <option>Jupe</option>
-                    <option>Robe</option>
-                    <option>Jean</option>
-                    <option>Blazer</option>
-                    <option>Sweat</option>
-                    <option>Top</option>
-                    <option>Legging</option>
-                    <option>Pull</option>
-                </select>
-            </div>
+	<div class="container mx-auto px-4 py-8">
+		<h1 class="text-2xl font-bold mb-6">Ajouter un vêtement à ma garde-robe</h1>
+		<form action="{{ path('add-garment') }}" method="POST" enctype="multipart/form-data" class="bg-gray-100 shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
-            <div class="mb-4">
-                <label for="color" class="block text-gray-700 text-sm font-bold mb-2">Couleur</label>
-                <input type="text" id="color" name="color" required 
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline" 
-                    placeholder="Entrez la couleur du vêtement">
-            </div>
+			<div class="mb-4">
+				<label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nom</label>
+				<input type="text" id="name" name="name" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrez le nom du vêtement">
+			</div>
+			<div class="mb-4">
+				<label for="type" class="block text-gray-700 text-sm font-bold mb-2">Type</label>
+				<select name="type" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline">
+					<option>Combinaison</option>
+					<option>Jupe</option>
+					<option>Robe</option>
+					<option>Jean</option>
+					<option>Blazer</option>
+					<option>Sweat</option>
+					<option>Top</option>
+					<option>Legging</option>
+					<option>Pull</option>
+				</select>
+			</div>
 
-            <div class="mb-4">
-                <label for="style" class="block text-gray-700 text-sm font-bold mb-2">Style</label>
-                <input type="text" id="style" name="style" required 
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline" 
-                    placeholder="Ex: Casual, Chic, Sport, etc.">
-            </div>
+			<div class="mb-4">
+				<label for="color" class="block text-gray-700 text-sm font-bold mb-2">Couleur</label>
+				<input type="text" id="color" name="color" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrez la couleur du vêtement">
+			</div>
 
-            <div class="mb-4">
-                <label for="season" class="block text-gray-700 text-sm font-bold mb-2">Saison</label>
-                <select name="season" required
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline">
-                    <option>Été</option>
-                    <option>Hiver</option>
-                    <option>Mi-saison</option>
-                </select>
-            </div>
+			<div class="mb-4">
+				<label for="style" class="block text-gray-700 text-sm font-bold mb-2">Style</label>
+				<input type="text" id="style" name="style" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline" placeholder="Ex: Casual, Chic, Sport, etc.">
+			</div>
 
-            <div class="mb-4">
-                <label for="material" class="block text-gray-700 text-sm font-bold mb-2">Matériau</label>
-                <input type="text" id="material" name="material" required
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline" 
-                    placeholder="Ex: Coton, Laine, Jean, etc.">
-            </div>
+			<div class="mb-4">
+				<label for="season" class="block text-gray-700 text-sm font-bold mb-2">Saison</label>
+				<select name="season" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline">
+					<option>Été</option>
+					<option>Hiver</option>
+					<option>Mi-saison</option>
+				</select>
+			</div>
 
-            <div class="mb-4">
-                <label for="occasion" class="block text-gray-700 text-sm font-bold mb-2">Occasion</label>
-                <select name="occasion" required
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline">
-                    <option>Casual</option>
-                    <option>Sport</option>
-                    <option>Formel</option>
-                    <option>Soirée</option>
-                </select>
-            </div>
+			<div class="mb-4">
+				<label for="material" class="block text-gray-700 text-sm font-bold mb-2">Matériau</label>
+				<input type="text" id="material" name="material" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline" placeholder="Ex: Coton, Laine, Jean, etc.">
+			</div>
 
-            <div class="mb-4">
-                <label for="imageUrl" class="block text-gray-700 text-sm font-bold mb-2">Image</label>
-                <input type="file" id="imageUrl" name="imageUrl" accept="image/*" required
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline">
-            </div>
+			<div class="mb-4">
+				<label for="occasion" class="block text-gray-700 text-sm font-bold mb-2">Occasion</label>
+				<select name="occasion" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline">
+					<option>Casual</option>
+					<option>Sport</option>
+					<option>Formel</option>
+					<option>Soirée</option>
+				</select>
+			</div>
 
-            <div class="flex items-center justify-between">
-                <button type="submit" 
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                    Ajouter
-                </button>
-            </div>
-        </form>
-    </div>
+			<div class="mb-4">
+				<label for="imageUrl" class="block text-gray-700 text-sm font-bold mb-2">Image</label>
+				<input type="file" id="imageUrl" name="imageUrl" accept="image/*" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline">
+			</div>
+			<div class="mb-4">
+				<label for="isShared" class="block text-gray-700 text-sm font-bold mb-2">Partager ce vêtement</label>
+				<input type="checkbox" id="isShared" name="isShared" value="1" class="shadow border rounded w-full">
+			</div>
+			<div class="flex items-center justify-between">
+				<button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+					Ajouter
+				</button>
+			</div>
+		</form>
+	</div>
 {% endblock %}

@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Service\OpenAIService;
 use Symfony\Component\Routing\Annotation\Route;
 
 class GarmentController extends AbstractController
@@ -24,7 +25,7 @@ class GarmentController extends AbstractController
             $garment->setSeason($request->request->get('season'));
             $garment->setMaterial($request->request->get('material'));
             $garment->setOccasion($request->request->get('occasion'));
-
+            $garment->setShared($request->request->getBoolean('isShared', false));
             $imageFile = $request->files->get('imageUrl');
             if ($imageFile) {
                 $fileName = uniqid() . '.' . $imageFile->guessExtension();
@@ -67,46 +68,38 @@ class GarmentController extends AbstractController
         ]);
     }
     #[Route('/recommend-outfit', name: 'recommend_outfit')]
-    public function recommendOutfit(EntityManagerInterface $em): Response
+    public function recommendOutfit(EntityManagerInterface $em, OpenAIService $openAIService): Response
     {
-        // $user = $this->getUser();
-        // if (!$user) {
-        //     $this->addFlash('error', 'Vous devez être connecté pour voir vos recommandations.');
-        //     return $this->redirectToRoute('app_login');
-        // }
+       
         $user = $em->getRepository(User::class)->find(1);
+    
         $garments = $em->getRepository(Garment::class)->findBy(['users' => $user]);
-
+    
         if (count($garments) < 2) {
-            $this->addFlash('error', 'Ajoutez plus de vêtements pour obtenir des recommandations.');
+            $this->addFlash('error', 'Ajoutez plus de vêtements.');
             return $this->redirectToRoute('my_wardrobe');
         }
-
-        $tops = [];
-        $bottoms = [];
-        $fullOutfits = [];
-        foreach ($garments as $garment) {
-            if (in_array(strtolower($garment->getType()), ['top', 't-shirt', 'blouse', 'chemise', 'pull'])) {
-                $tops[] = $garment;
-            } elseif (in_array(strtolower($garment->getType()), ['jean', 'pantalon', 'short', 'jupe'])) {
-                $bottoms[] = $garment;
-            } elseif (in_array(strtolower($garment->getType()), ['robe', 'combinaison'])) {
-                $fullOutfits[] = $garment;
+        $suggestedGarmentsData = $openAIService->generateOutfitSuggestion($garments);
+        $selectedGarments = [];
+    
+        foreach ($suggestedGarmentsData as $item) {
+            $garment = $em->getRepository(Garment::class)->findOneBy([
+                'name' => $item['name'],
+                'type' => $item['type'],
+                'color' => $item['color'],
+                'style' => $item['style'],
+                'users' => $user
+            ]);
+            if ($garment) {
+                $selectedGarments[] = $garment;
             }
         }
-
-        $outfit = [];
-        if (!empty($fullOutfits)) {
-            $outfit[] = $fullOutfits[array_rand($fullOutfits)];
-        } else {
-            if (!empty($tops) && !empty($bottoms)) {
-                $outfit[] = $tops[array_rand($tops)];
-                $outfit[] = $bottoms[array_rand($bottoms)];
-            }
-        }
+    
+        $imageUrl = $openAIService->generateOutfitImage($selectedGarments);
 
         return $this->render('/garment/recommendation.html.twig', [
-            'outfit' => $outfit,
+            'selectedGarments' => $selectedGarments,
+            'imageUrl' => $imageUrl
         ]);
     }
 }

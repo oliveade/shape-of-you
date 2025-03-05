@@ -1,10 +1,11 @@
 <?php
 
 Namespace App\Controller;
-
+use App\Entity\Garment;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
 
 class UserController extends AbstractController
 {
@@ -28,10 +29,15 @@ class UserController extends AbstractController
     {
         return $this->render('/home.html.twig');
     }
-    #[Route('/social', name: 'onglet_social')]
-    public function Social():Response
+
+    #[Route('/social-feed', name: 'onglet_social')]
+    public function socialFeed(EntityManagerInterface $em): Response
     {
-        return $this->render('/community/social.html.twig');
+        $sharedGarments = $em->getRepository(Garment::class)->findBy(['isShared' => true]);
+    
+        return $this->render('social/feed.html.twig', [
+            'sharedGarments' => $sharedGarments,
+        ]);
     }
-   
+    
 }
