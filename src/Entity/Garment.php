@@ -17,13 +17,13 @@ class Garment
     private ?string $name = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $type = null;
+    private ?string $type = null; 
 
     #[ORM\Column(length: 50)]
     private ?string $color = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $style = null;
+    private ?string $style = null; 
 
     #[ORM\Column(length: 255)]
     private ?string $imageUrl = null;
@@ -31,6 +31,16 @@ class Garment
     #[ORM\ManyToOne(inversedBy: 'garments')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $users = null;
+
+    #[ORM\Column(length: 50, nullable: true)]
+    private ?string $season = null; 
+
+    #[ORM\Column(length: 50, nullable: true)]
+    private ?string $material = null; 
+
+    #[ORM\Column(length: 50, nullable: true)]
+    private ?string $occasion = null;
+
 
     public function getId(): ?int
     {
@@ -45,7 +55,6 @@ class Garment
     public function setName(?string $name): static
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -57,7 +66,6 @@ class Garment
     public function setType(string $type): static
     {
         $this->type = $type;
-
         return $this;
     }
 
@@ -69,7 +77,6 @@ class Garment
     public function setColor(string $color): static
     {
         $this->color = $color;
-
         return $this;
     }
 
@@ -81,7 +88,6 @@ class Garment
     public function setStyle(?string $style): static
     {
         $this->style = $style;
-
         return $this;
     }
 
@@ -93,7 +99,6 @@ class Garment
     public function setImageUrl(string $imageUrl): static
     {
         $this->imageUrl = $imageUrl;
-
         return $this;
     }
 
@@ -105,7 +110,40 @@ class Garment
     public function setUsers(?User $users): static
     {
         $this->users = $users;
+        return $this;
+    }
 
+
+    public function getSeason(): ?string
+    {
+        return $this->season;
+    }
+
+    public function setSeason(?string $season): static
+    {
+        $this->season = $season;
+        return $this;
+    }
+
+    public function getMaterial(): ?string
+    {
+        return $this->material;
+    }
+
+    public function setMaterial(?string $material): static
+    {
+        $this->material = $material;
+        return $this;
+    }
+
+    public function getOccasion(): ?string
+    {
+        return $this->occasion;
+    }
+
+    public function setOccasion(?string $occasion): static
+    {
+        $this->occasion = $occasion;
         return $this;
     }
 }
