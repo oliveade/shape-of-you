@@ -2,6 +2,7 @@
 
 namespace App\Controller\Auth;
 
+use App\Dto\RegisterDto;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -22,34 +23,43 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, UserAuthenticatorInterface $userAuthenticator, FormLoginAuthenticator $formLoginAuthenticator, MailerInterface $mailer): Response
     {
         $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
+		
+		$registerDto = new RegisterDto();
+		
+        $form = $this->createForm(RegistrationFormType::class, $registerDto);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var string $plainPassword */
-            $plainPassword = $form->get('plainPassword')->getData();
-
-            $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
-
-            $entityManager->persist($user);
-            $entityManager->flush();
-
-            $email = (new TemplatedEmail())
-                ->from('Acme <onboarding@resend.dev>')
-                ->to(new Address('delivered@resend.dev'))
-                ->subject('Thanks for signing up!')
-                ->htmlTemplate('emails/welcome.html.twig')
-            ;
-
-            $mailer->send($email);
-
-            $userAuthenticator->authenticateUser(
-                $user,
-                $formLoginAuthenticator,
-                $request
-            );
-
-            return $this->redirectToRoute('app_mailer');
+			if ($registerDto->plainPassword !== $registerDto->confirmPassword) {
+				$this->addFlash('error', 'Les mots de passe ne correspondent pas.');
+				return $this->redirectToRoute('app_register');
+			} else {
+				$user->setEmail($registerDto->email);
+				$user->setUsername($registerDto->username);
+				$user->setBirthDate($registerDto->birthDate);
+				$user->setPassword($userPasswordHasher->hashPassword($user, $registerDto->plainPassword));
+				
+				$entityManager->persist($user);
+				$entityManager->flush();
+			
+				//handle register confirmation email
+				$email = (new TemplatedEmail())
+						->from('Acme <onboarding@resend.dev>')
+						->to(new Address('delivered@resend.dev'))
+						->subject('Thanks for signing up!')
+						->htmlTemplate('emails/welcome.html.twig')
+				;
+				
+				$mailer->send($email);
+				
+				$userAuthenticator->authenticateUser(
+						$user,
+						$formLoginAuthenticator,
+						$request
+				);
+				
+				return $this->redirectToRoute('app_profile');
+			}
         }
 
         return $this->render('auth/register.html.twig', [

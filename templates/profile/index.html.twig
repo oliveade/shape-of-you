@@ -32,7 +32,9 @@
                         <div class="bg-red-400 max-w-md rounded-lg text-center text-white">
                             {% for type, messages in app.flashes %}
                                 {% for message in messages %}
-                                    {{ message }}
+                                    <div class="alert alert-{{ type }} p-4 mb-4 text-white rounded bg-{{ type == 'success' ? 'green-400' : (type == 'error' ? 'red-400' : 'gray') }}-500">
+                                        {{ message }}
+                                    </div>
                                 {% endfor %}
                             {% endfor %}
                         </div>

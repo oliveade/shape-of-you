@@ -29,7 +29,6 @@ final class ProfileController extends AbstractController
 		$form->handleRequest($request);
 		
 		if ($form->isSubmitted() && $form->isValid()) {
-			dump($passwordUpdateDto);
 			if (!password_verify($passwordUpdateDto->oldPassword, $user->getPassword())) {
 				$this->addFlash('error', 'Ancien mot de passe incorrect.');
 				dump('Ancien mot de passe incorrect.');
