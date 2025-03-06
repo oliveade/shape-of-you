@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+    <div class="min-h-screen flex flex-col items-center justify-center p-10">
+        <h1 class="text-4xl font-extrabold text-gray-700 mb-12">Créer un nouvel utilisateur</h1>
+
+        <div class="w-full max-w-3xl bg-white p-10 rounded-lg shadow-xl">
+            {{ include('user/_form.html.twig') }}
+
+            <div class="flex justify-between items-center mt-6">
+                <a href="{{ path('app_user_index') }}" class="bg-gray-300 text-gray-700 py-2 px-6 rounded-xl font-semibold hover:bg-gray-400 border-2 border-gray-400 transition">Retour à la liste</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

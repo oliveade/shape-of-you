@@ -22,21 +22,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\GeneratedValue]
     #[ORM\Column(type: Types::INTEGER)]
     private ?int $id = null;
-
+	
     #[ORM\Column(type: Types::STRING, unique: true)]
     private ?string $email = null;
-
-    #[ORM\Column(type: Types::STRING)]
-    private ?string $firstname = null; 
-
-    #[ORM\Column(type: Types::STRING)]
-    private ?string $lastname = null;
-
-    /**
-     * @var string[] The user roles
-     */
-    #[ORM\Column(type: Types::JSON)]
-    private array $roles = [];
+	
+	/**
+	 * @var string[] The user roles
+	 */
+	#[ORM\Column(type: Types::JSON)]
+	private array $roles = [];
 
     /**
      * @var string The hashed password
@@ -44,16 +38,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::STRING)]
     private ?string $password = null;
 
-    /**
-     * @var Collection<int, Garment>
-     */
-    #[ORM\OneToMany(targetEntity: Garment::class, mappedBy: 'users')]
-    private Collection $garments;
+    #[ORM\Column(type: Types::STRING)]
+    private ?string $username = null;
 
-    public function __construct()
-    {
-        $this->garments = new ArrayCollection();
-    }
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $birthdate = null;
+	
+	/**
+	 * @var Collection<int, Garment>
+	 */
+	#[ORM\OneToMany(targetEntity: Garment::class, mappedBy: 'users')]
+	private Collection $garments;
+	
+	public function __construct()
+	{
+		$this->garments = new ArrayCollection();
+	}
 
     public function getId(): ?int
     {
@@ -71,31 +71,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
-    public function getFirstname(): ?string
-    {
-        return $this->firstname; 
-    }
-
-    public function setFirstname(string $firstname): static
-    {
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    public function getLastname(): ?string
-    {
-        return $this->lastname; 
-    }
-
-    public function setLastname(string $lastname): static
-    {
-        $this->lastname = $lastname;
-
-        return $this;
-    }
-
+	
     /**
      * A visual identifier that represents this user.
      *
@@ -127,10 +103,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setRoles(array $roles): static
     {
         $this->roles = $roles;
-
+        
         return $this;
     }
-
+	
     /**
      * @see PasswordAuthenticatedUserInterface
      */
@@ -151,10 +127,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function eraseCredentials(): void
     {
-
+		// If you store any temporary, sensitive data on the user, clear it here
+		// $this->plainPassword = null;
     }
-
-    /**
+	
+	public function getUsername(): ?string
+	{
+		return $this->username;
+	}
+	
+	public function setUsername(string $username): static
+	{
+		$this->username = $username;
+		
+		return $this;
+	}
+	
+	public function getBirthdate(): ?\DateTimeInterface
+	{
+		return $this->birthdate;
+	}
+	
+	public function setBirthdate(?\DateTimeInterface $birthdate): static
+	{
+		$this->birthdate = $birthdate;
+		
+		return $this;
+	}
+	
+	/**
      * @return Collection<int, Garment>
      */
     public function getGarments(): Collection
@@ -173,13 +174,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     public function removeGarment(Garment $garment): static
-    {
-        if ($this->garments->removeElement($garment)) {
-            if ($garment->getUsers() === $this) {
-                $garment->setUsers(null);
-            }
-        }
-
-        return $this;
-    }
+	{
+		if ($this->garments->removeElement($garment)) {
+			if ($garment->getUsers() === $this) {
+				$garment->setUsers(null);
+			}
+		}
+		
+		# j'ai une erreur ici mon ide me dit qu'il manque un return
+		# je l'ai ajouté pour régler le pb mais ça peut être supp si besoin
+		return $this;
+	}
 }

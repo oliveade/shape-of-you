@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'utilisateur{% endblock %}
+
+{% block body %}
+    <div class="min-h-screen flex flex-col items-center justify-center p-10">
+        <h1 class="text-4xl font-extrabold text-gray-700 mb-12">Modifier l'utilisateur</h1>
+
+        <div class="w-full max-w-3xl bg-white p-10 rounded-lg shadow-xl">
+            {{ include('user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+            <div class="flex justify-between items-center mt-6">
+                <a href="{{ path('app_user_index') }}" class="bg-gray-300 text-gray-700 py-2 px-6 rounded-xl font-semibold hover:bg-gray-400 border-2 border-gray-400 transition">Retour à la liste</a>
+
+                {{ include('user/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

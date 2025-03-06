@@ -1,13 +1,13 @@
 # Executables
-DOCKER = docker
-DOCKER_COMPOSE = docker compose
+DOCKER := docker
+DOCKER_COMPOSE := $(DOCKER) compose
 
 PHP = php
 VENDORBIN = vendor/bin/
 COMPOSER = composer
 
-SYMFONY = symfony
-SYMFONY_CONSOLE = $(SYMFONY) console
+SYMFONY := symfony
+SYMFONY_CONSOLE := $(SYMFONY) console
 
 ## —— Help 🆘 ————————————————————————————————————————————--————————————————————
 help: ## Outputs this help screen

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <meta name="x-apple-disable-message-reformatting"/>
+    </head>
+    <body class="bg-white font-sans">
+        <div class="max-w-xl pt-5 pb-12 mx-auto">
+            <h1 class="text-2xl pt-4">
+                Hi {{ email.toName }},
+            </h1>
+
+            <p class="mb-4 text-sm">
+                Someone recently requested a password change for your Dropbox account. If this was you, you can set a
+                new password here:
+            </p>
+
+            <p class="mb-4 text-sm">
+                Remember to use a password that is both strong and unique to your Twitch account.
+            </p>
+
+            <section class="py-7">
+                <a href="{{ url('app_reset_password') }}"
+                   class="bg-black rounded-sm font-semibold text-white text-sm no-underline text-center block px-6 py-3">
+                    Reset password
+                </a>
+            </section>
+
+            <p class="mb-4 text-sm">
+                However if you did NOT perform this password change, just ignore and delete this message.
+            </p>
+
+            <p class="mb-4 text-sm">
+                Best,
+                <br/>— The Shape of You team
+            </p>
+        </div>
+    </body>
+</html>

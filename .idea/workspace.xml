@@ -5,15 +5,108 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71109843-af04-427f-a2fb-40a1abe4de0a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/google/api-key.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/google/api-vision-key.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/http_discovery.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20250305084845.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20250305113158.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20250306162649.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20250306162908.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20250306165130.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phpstan.dist.neon" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/678f64702b8c1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/6790b1202a316.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/6790b4883ed86.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67a32221ca93b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67a32f2ec881b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c7808735c56.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c78a69171a0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c807ad99209.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c807d112fff.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c8095a7a83b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c80ad694e36.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c80bcb8638e.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c80c7ab5ef0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c80c989c009.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c80cc14642e.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c80d78cf20d.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c8115e1732d.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c8186eb2e74.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c81ac85278b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c82cec86408.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c831d29a684.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c832309bc7f.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c833b89f3be.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c8885096722.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c8916c47c42.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c891dee5788.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c9b93c351fc.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c9b9f4ec60d.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c9ba7c9e6d0.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c9baa8d50c1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c9bb8e042f0.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c9c20e5ef30.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c9c26874422.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c9c4252ab04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c9c440b4657.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c9d976e3ca7.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c9d9c7331e1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/67c9da9e4186b.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/GarmentController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ImageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/LoginController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Garment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/GarmentRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/OutfitRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/ContentApiService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/GoogleVisionService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/OpenAIService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/community/social.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/garment/add.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/garment/recommendation.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/login/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/others/social.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/partials/footer.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/partials/navbar.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/photos.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/upload_result.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/wardrobe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.php-cs-fixer.dist.php" beforeDir="false" afterPath="$PROJECT_DIR$/.php-cs-fixer.dist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/parts/_navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/parts/_navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" synchronizationState="DONT_SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable path="composer" />
@@ -183,6 +276,22 @@
       <path value="$PROJECT_DIR$/vendor/symfony/resend-mailer" />
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/webhook" />
+      <path value="$PROJECT_DIR$/vendor/php-http/discovery" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/php-http/multipart-stream-builder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/rate-limiter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/ux-turbo" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stimulus-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/remote-event" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/openai-php/client" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -198,8 +307,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/mathe/Desktop/Git/shape-of-you/public/img/icons",
+    "git-widget-placeholder": "Merging matheo-dev",
+    "last_opened_file_path": "C:/Users/mathe/Desktop/Git/shape-of-you/src/Repository",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -211,6 +320,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mathe\Desktop\Git\shape-of-you\src\Repository" />
       <recent name="C:\Users\mathe\Desktop\Git\shape-of-you\public\img\icons" />
       <recent name="C:\Users\mathe\Desktop\Git\shape-of-you\templates\profile" />
     </key>
@@ -220,6 +330,10 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ComposerRunConfigurationType" factoryName="Composer Script">
+      <option name="pathToComposerJson" value="$PROJECT_DIR$/composer.json" />
+      <method v="2" />
+    </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml.dist" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
