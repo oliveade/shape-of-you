@@ -40,4 +40,17 @@ class HistoryRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+    /**
+     * @return History Returns an History objects with Outfits
+     */
+    public function findOneHistory($id): ?History
+    {
+        return $this->createQueryBuilder('h')
+            ->where('h.id = :id')
+            ->setParameter('id', $id)
+            ->leftJoin('h.outfits', 'outfits')
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }
