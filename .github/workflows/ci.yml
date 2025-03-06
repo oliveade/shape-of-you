@@ -2,7 +2,6 @@ name: "CI"
 
 on:
   pull_request:
-    branches: [ develop, main ]
     types: [
       opened,
       synchronize,
@@ -54,26 +53,25 @@ jobs:
         uses: docker://oskarstark/php-cs-fixer-ga
         with:
           args: --diff --dry-run
+  static-analysis:
+    name: PHPStan
+    needs: [ "deps" ]
+    runs-on: ubuntu-latest
 
-#  static-analysis:
-#    name: PHPStan
-#    needs: [ "deps" ]
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - name: Checkout repository
-#        uses: actions/checkout@v4
-#
-#      - name: Restore Cache
-#        uses: actions/cache@v4
-#        with:
-#          path: vendor
-#          key: composer-${{ hashFiles('**/composer.lock') }}
-#
-#      - name: Run PHPStan
-#        uses: php-actions/phpstan@v3
-#        continue-on-error: true
-#        with:
-#          path: src/
-#          php_version: 8.3
-#          level: 9
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Restore Cache
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('**/composer.lock') }}
+
+      - name: Run PHPStan
+        uses: php-actions/phpstan@v3
+        continue-on-error: true
+        with:
+          path: src/
+          php_version: 8.3
+          level: 9

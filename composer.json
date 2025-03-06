@@ -25,6 +25,9 @@
         "symfony/runtime": "7.2.*",
         "symfony/security-bundle": "7.2.*",
         "symfony/stimulus-bundle": "^2.22.1",
+        "google/cloud-vision": "^2.0",
+        "openai-php/client": "^0.10.3",
+        "symfony/mime": "7.2.*",
         "symfony/twig-bundle": "7.2.*",
         "symfony/ux-turbo": "^2.22.1",
         "symfony/validator": "7.2.*",
@@ -93,6 +96,7 @@
         "symfony/maker-bundle": "^1.62.1",
         "symfony/phpunit-bridge": "^7.2",
         "symfony/stopwatch": "7.2.*",
-        "symfony/web-profiler-bundle": "7.2.*"
+        "symfony/web-profiler-bundle": "7.2.*",
+        "phpstan/phpstan": "^2.1"
     }
 }

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résultats de l'analyse{% endblock %}
+
+{% block body %}
+<div class="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Résultats de l'analyse de votre tenue</h1>
+
+    <ul class="space-y-4">
+        {% for object in objects %}
+            <li class="p-4 border border-gray-200 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700">{{ object.name }}</h2>
+                <p class="text-gray-600">Confiance : <span class="font-bold text-blue-500">{{ object.confidence }}%</span></p>
+                
+                <div class="bg-gray-200 rounded-full h-2 mb-2">
+                    <div class="bg-blue-500 h-2 rounded-full" style="width: {{ object.confidence }}%"></div>
+                </div>
+
+                <h3 class="text-md font-medium text-gray-600 mt-2">Description :</h3>
+                <p class="text-gray-600">
+                    {% if object.name == 'Outerwear' %}
+                        Cet article représente une couche extérieure, parfaite pour les journées fraîches. Pensez à l'associer avec un pantalon léger.
+                    {% elseif object.name == 'Pants' %}
+                        Ces pantalons sont idéaux pour un look décontracté ou professionnel, selon la coupe. Vous pouvez les associer avec une chemise ou un haut décontracté.
+                    {% elseif object.name == 'Person' %}
+                        Une personne a été détectée dans l'image. Assurez-vous que la tenue soit bien mise en valeur !
+                    {% endif %}
+                </p>
+
+                <h3 class="text-md font-medium text-gray-600 mt-2">Coordonnées (Position dans l'image) :</h3>
+                <ul class="list-disc list-inside text-gray-600">
+                    {% for vertex in object.vertices %}
+                        <li>(x: {{ vertex.x }}, y: {{ vertex.y }})</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+
+    {% if objects|length == 0 %}
+        <p class="text-center text-gray-500 mt-6">Aucun résultat trouvé.</p>
+    {% endif %}
+</div>
+{% endblock %}

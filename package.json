@@ -9,6 +9,8 @@
     "postcss": "^8.5.1",
     "postcss-loader": "^8.1.1",
     "tailwindcss": "^4.0.1",
+    "autoprefixer": "^10.4.20",
+    "daisyui": "^4.12.23",
     "webpack-notifier": "^1.15.0"
   },
   "name": "pec_project",
@@ -43,6 +45,7 @@
     "fast-glob": "^3.3.2",
     "fastq": "^1.17.1",
     "fill-range": "^7.1.1",
+    "font-awesome": "^4.7.0",
     "foreground-child": "^3.3.0",
     "fraction.js": "^4.3.7",
     "function-bind": "^1.1.2",
@@ -114,10 +117,10 @@
     "yaml": "^2.6.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-server": "encore dev-server",
     "dev": "encore dev",
-    "build": "encore production",
-    "watch": "encore dev --watch"
+    "watch": "encore dev --watch",
+    "build": "encore production --progress"
   },
   "keywords": [],
   "author": "",
