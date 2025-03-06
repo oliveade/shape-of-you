@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier mon profil{% endblock %}
+
+{% block body %}
+    <div class="min-h-screen flex flex-col items-center justify-center p-10">
+        <h1 class="text-4xl font-extrabold text-gray-700 mb-12">Modifier mon profil</h1>
+
+        <div class="w-full max-w-3xl bg-white p-10 rounded-lg shadow-xl">
+            {{ include('profile/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+            <div class="flex justify-between items-center mt-6">
+                <a href="{{ path('app_profile') }}" class="bg-gray-300 text-gray-700 py-2 px-6 rounded-xl font-semibold hover:bg-gray-400 border-2 border-gray-400 transition">Retour vers mon profil</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
