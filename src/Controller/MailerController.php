@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class MailerController extends AbstractController
 {
-    #[Route('/', name: 'app_mailer')]
+    #[Route('/mailer', name: 'app_mailer')]
     public function index(): Response
     {
         return $this->render('mailer/index.html.twig', [

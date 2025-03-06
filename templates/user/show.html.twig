@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Informations Utilisateur{% endblock %}
+
+{% block body %}
+    <div class="min-h-screen flex flex-col items-center justify-center p-10">
+        <h1 class="text-3xl font-extrabold text-gray-700 mb-12">Informations utilisateur</h1>
+
+        <div class="w-full max-w-3xl p-6 rounded-lg shadow-xl">
+            <h2 class="text-3xl font-bold text-gray-700 mb-6">Liste des informations</h2>
+
+            <table class="w-full border border-gray-300 rounded-xl shadow-md">
+                <tbody>
+                <tr class="border-b border-gray-300">
+                    <th class="py-4 px-6 bg-gray-200 text-gray-700 text-left text-xl">ID</th>
+                    <td class="py-4 px-6 bg-gray-100">{{ user.id }}</td>
+                </tr>
+                <tr class="border-b border-gray-300">
+                    <th class="py-4 px-6 bg-gray-200 text-gray-700 text-left text-xl">Email</th>
+                    <td class="py-4 px-6 bg-gray-100">{{ user.email }}</td>
+                </tr>
+                <tr class="border-b border-gray-300">
+                    <th class="py-4 px-6 bg-gray-200 text-gray-700 text-left text-xl">Rôles</th>
+                    <td class="py-4 px-6 bg-gray-100">
+                        {{ user.roles ? user.roles|map(role => role|replace({'ROLE_': ''})|capitalize)|join(', ') : 'Aucun rôle' }}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="mt-6 flex justify-end gap-4">
+                <a href="{{ path('app_user_edit', {'id': user.id}) }}" class="bg-red-300 text-gray-700 py-2 px-4 rounded-xl font-semibold hover:bg-rose-400 transition">Modifier</a>
+                {{ include('user/_delete_form.html.twig') }}
+            </div>
+        </div>
+        <div class="mt-6 flex justify-center gap-4">
+            <a href="{{ path('app_user_index') }}" class="bg-gray-300 text-gray-700 py-2 px-6 rounded-xl font-semibold hover:bg-gray-400 border-2 border-gray-400 transition">Retour à la liste</a>
+        </div>
+    </div>
+{% endblock %}

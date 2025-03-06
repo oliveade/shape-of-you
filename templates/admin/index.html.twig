@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin - Shape of You{% endblock %}
+
+{% block body %}
+    <div class="min-h-screen flex flex-col items-center justify-center p-6">
+        <h1 class="text-3xl font-extrabold text-gray-700 mb-12">Panneau d'administration</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-6xl">
+            <!-- Section Stats -->
+            <div class="p-6 rounded-lg shadow-xl">
+                <h2 class="text-2xl font-bold text-gray-700 text-center mb-4">Statistiques</h2>
+                <div class="space-y-6">
+                    (À définir)
+                </div>
+            </div>
+
+            <!-- Section CRUD -->
+            <div class="p-10 rounded-lg shadow-xl">
+                <h2 class="text-2xl font-bold text-gray-700 text-center mb-4">Gestion des données</h2>
+                <div class="space-y-6">
+                    <a href="{{ path('app_user_index') }}" class="block bg-red-300 text-gray-700 text-center py-2 px-3 text-xl rounded-xl font-semibold hover:bg-rose-400 transition">Gérer les Utilisateurs</a>
+                    <a href="{{ path('app_user_index') }}" class="block bg-red-300 text-gray-700 text-center py-2 px-3 text-xl rounded-xl font-semibold hover:bg-rose-400 transition">Gérer les Catégories</a>
+                    <a href="{{ path('app_user_index') }}" class="block bg-red-300 text-gray-700 text-center py-2 px-3 text-xl rounded-xl font-semibold hover:bg-rose-400 transition">Gérer les Références</a>
+                    <a href="{{ path('app_user_index') }}" class="block bg-red-300 text-gray-700 text-center py-2 px-3 text-xl rounded-xl font-semibold hover:bg-rose-400 transition">Gérer les Liens partenaires</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

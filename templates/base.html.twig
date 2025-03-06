@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -9,7 +9,17 @@
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
-    <body>
+    <body class="bg-light">
+    {% block navbar %}
+        {% include 'parts/_navbar.html.twig' %}
+    {% endblock %}
+
+    <main class="">
         {% block body %}{% endblock %}
+    </main>
+
+    {% block footer %}
+        {% include 'parts/_footer.html.twig' %}
+    {% endblock %}
     </body>
 </html>

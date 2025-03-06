@@ -1,23 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-    {% for flash_error in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-    {% endfor %}
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="w-full max-w-md bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-semibold text-center text-gray-700">Inscription</h2>
+            <div class="mt-6">
+                {% if app.user %}
+                <div class="mb-6 text-gray-700 text-center font-semibold">
+                    You are currently logged in as <span class="text-rose-500">{{ app.user.userIdentifier }}</span>
+                </div>
+                <div class="text-center text-white rounded-lg p-2 font-medium mb-4 space-x-4">
+                    <a class="bg-rose-400 hover:bg-rose-500 px-4 py-2 rounded-lg shadow-md transition-all duration-200"
+                       href="{{ path('app_profile') }}">
+                        Profile
+                    </a>
+                    <a class="bg-red-400 hover:bg-red-500 px-4 py-2 rounded-lg shadow-md transition-all duration-200"
+                       href="{{ path('app_logout') }}">
+                        Logout
+                    </a>
+                </div>
 
-    <h1>Register</h1>
+                {% else %}
 
-    {{ form_errors(form) }}
+                    {% for flash_error in app.flashes('verify_email_error') %}
+                        <div class="bg-red-400 text-white rounded-lg mb-4 p-2 font-medium text-center"
+                             role="alert">{{ flash_error }}</div>
+                    {% endfor %}
 
-    {{ form_start(form) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.plainPassword, {
-        label: 'Password'
-    }) }}
-    {{ form_row(form.agreeTerms) }}
+                    {{ form_errors(form) }}
 
-    <button type="submit" class="btn">Register</button>
-    {{ form_end(form) }}
+                    {{ form_start(form) }}
+                    <div class="mb-4">
+                        {{ form_row(form.email) }}
+                    </div>
+
+                    <div class="mb-4">
+                        {{ form_row(form.plainPassword, {
+                            label: 'Password'
+                        }) }}
+                    </div>
+
+                    <button type="submit" class="w-full bg-rose-400 text-white mt-8 py-2 px-4 rounded-lg hover:bg-rose-500 transition">
+                        Inscription
+                    </button>
+                    {{ form_end(form) }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
