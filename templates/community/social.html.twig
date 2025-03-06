@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fil Social{% endblock %}
+
+{% block body %}
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-6">Vêtements Partagés</h1>
+
+        {% if sharedGarments is empty %}
+            <p class="text-gray-500">Aucun vêtement partagé pour le moment.</p>
+        {% else %}
+             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
+        {% for garment in sharedGarments %}
+            <div class="bg-white border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition relative">
+                <img 
+                    src="{{ asset('uploads/' ~ garment.imageUrl) }}" 
+                    alt="{{ garment.style }}" 
+                    class="w-full h-56 object-cover"
+                >
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold text-gray-900">{{ garment.name }}</h3>
+                    <p class="text-gray-600 text-sm">{{ garment.color }}</p>
+                    <p class="text-gray-600 text-sm">Partagé par: {{ garment.users.firstname }} {{ garment.users.lastname }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+

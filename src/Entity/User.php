@@ -26,6 +26,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::STRING, unique: true)]
     private ?string $email = null;
 
+    #[ORM\Column(type: Types::STRING)]
+    private ?string $firstname = null; 
+
+    #[ORM\Column(type: Types::STRING)]
+    private ?string $lastname = null;
+
     /**
      * @var string[] The user roles
      */
@@ -66,6 +72,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getFirstname(): ?string
+    {
+        return $this->firstname; 
+    }
+
+    public function setFirstname(string $firstname): static
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname; 
+    }
+
+    public function setLastname(string $lastname): static
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
     /**
      * A visual identifier that represents this user.
      *
@@ -84,7 +114,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
         if (empty($roles)) {
             $roles[] = self::ROLE_USER;
         }
@@ -122,8 +151,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function eraseCredentials(): void
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+
     }
 
     /**
@@ -147,7 +175,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeGarment(Garment $garment): static
     {
         if ($this->garments->removeElement($garment)) {
-            // set the owning side to null (unless already changed)
             if ($garment->getUsers() === $this) {
                 $garment->setUsers(null);
             }
