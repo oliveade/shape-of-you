@@ -21,3 +21,7 @@ Le site est développé en Symfony, TailwindCSS, avec une intégration IA.
 ### .
 
 ### .
+
+
+composer require google/cloud-vision
+composer install
