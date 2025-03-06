@@ -19,3 +19,4 @@ return (new PhpCsFixer\Config())
     ->setFinder($finder)
     ->setCacheFile(__DIR__.'/var/.php-cs-fixer.cache')
     ;
+
