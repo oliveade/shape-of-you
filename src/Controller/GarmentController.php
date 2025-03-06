@@ -41,10 +41,8 @@ class GarmentController extends AbstractController
 
             $user = $em->getRepository(User::class)->find(1);
             $garment->setUsers($user);
-
             $em->persist($garment);
             $em->flush();
-
             $this->addFlash('success', 'Vêtement ajouté avec succès !');
             return $this->redirectToRoute('my_wardrobe');
         }
@@ -76,10 +74,8 @@ class GarmentController extends AbstractController
             $this->addFlash('error', 'Vous ne pouvez pas supprimer ce vêtement.');
             return $this->redirectToRoute('my_wardrobe');
         }
-
         $em->remove($garment);
         $em->flush();
-
         $this->addFlash('success', 'Vêtement supprimé avec succès.');
         return $this->redirectToRoute('my_wardrobe');
     }
@@ -89,18 +85,16 @@ class GarmentController extends AbstractController
     {
 
         $user = $em->getRepository(User::class)->find(1);
-
         $garments = $em->getRepository(Garment::class)->findBy(['users' => $user]);
         if (count($garments) < 2) {
+
             $this->addFlash('error', 'Ajoutez plus de vêtements.');
             return $this->redirectToRoute('my_wardrobe');
         }
         $suggestedGarmentsData = $openAIService->generateOutfitSuggestion($garments);
         $selectedGarments = [];
-
         foreach ($suggestedGarmentsData as $item) {
             $garment = $em->getRepository(Garment::class)->findOneBy([
-                'name' => $item['name'],
                 'type' => $item['type'],
                 'color' => $item['color'],
                 'style' => $item['style'],
@@ -112,7 +106,6 @@ class GarmentController extends AbstractController
         }
 
         $imageUrl = $openAIService->generateOutfitImage($selectedGarments);
-
         return $this->render('/garment/recommendation.html.twig', [
             'selectedGarments' => $selectedGarments,
             'imageUrl' => $imageUrl
@@ -122,7 +115,6 @@ class GarmentController extends AbstractController
     public function searchGarment(Request $request, EntityManagerInterface $em): Response
     {
         $query = $request->query->get('search');
-
         // $user = $this->getUser();
         $user = $em->getRepository(User::class)->find(1);
         $garments = $em->getRepository(Garment::class)->createQueryBuilder('g')
