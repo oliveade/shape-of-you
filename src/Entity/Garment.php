@@ -17,13 +17,13 @@ class Garment
     private ?string $name = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $type = null; 
+    private ?string $type = null;
 
     #[ORM\Column(length: 50)]
     private ?string $color = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $style = null; 
+    private ?string $style = null;
 
     #[ORM\Column(length: 255)]
     private ?string $imageUrl = null;
@@ -33,26 +33,17 @@ class Garment
     private ?User $users = null;
 
     #[ORM\Column(length: 50, nullable: true)]
-    private ?string $season = null; 
+    private ?string $season = null;
 
     #[ORM\Column(length: 50, nullable: true)]
-    private ?string $material = null; 
+    private ?string $material = null;
 
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $occasion = null;
 
+    #[ORM\Column(type: 'boolean')]
     private bool $isShared = false;
 
-    public function isShared(): bool
-    {
-        return $this->isShared;
-    }
-    
-    public function setShared(bool $isShared): self
-    {
-        $this->isShared = $isShared;
-        return $this;
-    }
     public function getId(): ?int
     {
         return $this->id;
@@ -124,7 +115,6 @@ class Garment
         return $this;
     }
 
-
     public function getSeason(): ?string
     {
         return $this->season;
@@ -155,6 +145,17 @@ class Garment
     public function setOccasion(?string $occasion): static
     {
         $this->occasion = $occasion;
+        return $this;
+    }
+
+    public function isShared(): bool
+    {
+        return $this->isShared;
+    }
+
+    public function setShared(bool $isShared): self
+    {
+        $this->isShared = $isShared;
         return $this;
     }
 }

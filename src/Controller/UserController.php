@@ -35,7 +35,7 @@ class UserController extends AbstractController
     {
         $sharedGarments = $em->getRepository(Garment::class)->findBy(['isShared' => true]);
     
-        return $this->render('social/feed.html.twig', [
+        return $this->render('community/social.html.twig', [
             'sharedGarments' => $sharedGarments,
         ]);
     }
