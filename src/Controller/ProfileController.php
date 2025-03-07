@@ -23,12 +23,12 @@ final class ProfileController extends AbstractController
     public function index(Request $request, EntityManagerInterface $entityManager, Security $security, UserPasswordHasherInterface $passwordHasher): Response
     {
         $user = $security->getUser();
-        
+
         $passwordUpdateDto = new PasswordUpdateDto();
-        
+		
         $form = $this->createForm(PasswordUpdateType::class, $passwordUpdateDto);
         $form->handleRequest($request);
-        
+		
         if ($form->isSubmitted() && $form->isValid()) {
             if (!password_verify($passwordUpdateDto->oldPassword, $user->getPassword())) {
                 $this->addFlash('error', 'Ancien mot de passe incorrect.');
@@ -41,12 +41,12 @@ final class ProfileController extends AbstractController
                 $hashedPassword = $passwordHasher->hashPassword($user, $passwordUpdateDto->newPassword);
                 $user->setPassword($hashedPassword);
                 $entityManager->flush();
-                
+				
                 $this->addFlash('success', 'Mot de passe mis à jour avec succès.');
                 // return $this->redirectToRoute('app_profile');
             }
-        }
-        
+        }		
+
         return $this->render('profile/index.html.twig', [
                 'form' => $form->createView(),
         ]);

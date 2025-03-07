@@ -57,6 +57,7 @@ class Garment
     public function setName(?string $name): static
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -68,6 +69,7 @@ class Garment
     public function setType(string $type): static
     {
         $this->type = $type;
+
         return $this;
     }
 
@@ -79,6 +81,7 @@ class Garment
     public function setColor(string $color): static
     {
         $this->color = $color;
+
         return $this;
     }
 
@@ -90,6 +93,7 @@ class Garment
     public function setStyle(?string $style): static
     {
         $this->style = $style;
+
         return $this;
     }
 
@@ -101,6 +105,7 @@ class Garment
     public function setImageUrl(string $imageUrl): static
     {
         $this->imageUrl = $imageUrl;
+
         return $this;
     }
 
@@ -112,6 +117,7 @@ class Garment
     public function setUsers(?User $users): static
     {
         $this->users = $users;
+
         return $this;
     }
 
@@ -123,6 +129,7 @@ class Garment
     public function setSeason(?string $season): static
     {
         $this->season = $season;
+
         return $this;
     }
 
@@ -134,6 +141,7 @@ class Garment
     public function setMaterial(?string $material): static
     {
         $this->material = $material;
+
         return $this;
     }
 
@@ -145,6 +153,7 @@ class Garment
     public function setOccasion(?string $occasion): static
     {
         $this->occasion = $occasion;
+
         return $this;
     }
 
@@ -156,6 +165,7 @@ class Garment
     public function setShared(bool $isShared): self
     {
         $this->isShared = $isShared;
+
         return $this;
     }
 }

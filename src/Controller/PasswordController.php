@@ -11,26 +11,26 @@ final class PasswordController extends AbstractController
     #[Route('/password_forgotten', name: 'app_password_forgotten')]
     public function index(): Response
     {
-		#handle mail error
+        // handle mail error
 		
-		$error = null;
+        $error = null;
 		
         return $this->render('auth/password_forgotten.html.twig', [
             'controller_name' => 'PasswordController',
-			'error' => $error,
+            'error' => $error,
         ]);
     }
 	
-	#[Route('/password_reset', name: 'app_password_reset')]
-	public function reset(): Response
-	{
-		#handle error with mail reset password
+    #[Route('/password_reset', name: 'app_password_reset')]
+    public function reset(): Response
+    {
+        // handle error with mail reset password
 		
-		$error = null;
+        $error = null;
 		
-		return $this->render('auth/password_reset.html.twig', [
-			'controller_name' => 'PasswordController',
-			'error' => $error,
-		]);
-	}
+        return $this->render('auth/password_reset.html.twig', [
+            'controller_name' => 'PasswordController',
+            'error' => $error,
+        ]);
+    }
 }
