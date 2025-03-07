@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71109843-af04-427f-a2fb-40a1abe4de0a" name="Changes" comment="style: format file">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/cd.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shape-of-you.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shape-of-you.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -243,7 +241,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "03-07-ci__add__cd__and__updtae__ci",
     "last_opened_file_path": "/Users/junior/PhpstormProjects/shape-of-you",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -304,7 +302,7 @@
       <workItem from="1741257164298" duration="15691000" />
       <workItem from="1741282000280" duration="591000" />
       <workItem from="1741348458478" duration="5324000" />
-      <workItem from="1741358889090" duration="257000" />
+      <workItem from="1741358889090" duration="1744000" />
     </task>
     <task id="LOCAL-00001" summary="feat(users): add userfixtures">
       <option name="closed" value="true" />
