@@ -33,7 +33,6 @@ final class GarmentFactory extends PersistentProxyObjectFactory
         'tracksuit',
         'shoes',
         'jewelry',
-
     ];
 
     /**
