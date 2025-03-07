@@ -24,10 +24,10 @@ class ContentApiService
             ],
         ]);
 
-        if ($response->getStatusCode() === 200) {
+        if (200 === $response->getStatusCode()) {
             return $response->toArray();
         }
 
-        throw new \Exception('Erreur lors de l\'appel à l\'API : ' . $response->getStatusCode());
+        throw new \Exception('Erreur lors de l\'appel à l\'API : '.$response->getStatusCode());
     }
 }

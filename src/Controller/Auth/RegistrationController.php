@@ -24,42 +24,43 @@ class RegistrationController extends AbstractController
     {
         $user = new User();
 		
-		$registerDto = new RegisterDto();
+        $registerDto = new RegisterDto();
 		
         $form = $this->createForm(RegistrationFormType::class, $registerDto);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-			if ($registerDto->plainPassword !== $registerDto->confirmPassword) {
-				$this->addFlash('error', 'Les mots de passe ne correspondent pas.');
-				return $this->redirectToRoute('app_register');
-			} else {
-				$user->setEmail($registerDto->email);
-				$user->setUsername($registerDto->username);
-				$user->setBirthDate($registerDto->birthDate);
-				$user->setPassword($userPasswordHasher->hashPassword($user, $registerDto->plainPassword));
+            if ($registerDto->plainPassword !== $registerDto->confirmPassword) {
+                $this->addFlash('error', 'Les mots de passe ne correspondent pas.');
+
+                return $this->redirectToRoute('app_register');
+            } else {
+                $user->setEmail($registerDto->email);
+                $user->setUsername($registerDto->username);
+                $user->setBirthDate($registerDto->birthDate);
+                $user->setPassword($userPasswordHasher->hashPassword($user, $registerDto->plainPassword));
 				
-				$entityManager->persist($user);
-				$entityManager->flush();
+                $entityManager->persist($user);
+                $entityManager->flush();
 			
-				//handle register confirmation email
-				$email = (new TemplatedEmail())
-						->from('Acme <onboarding@resend.dev>')
-						->to(new Address('delivered@resend.dev'))
-						->subject('Thanks for signing up!')
-						->htmlTemplate('emails/welcome.html.twig')
-				;
+                // handle register confirmation email
+                $email = (new TemplatedEmail())
+                		->from('Acme <onboarding@resend.dev>')
+                		->to(new Address('delivered@resend.dev'))
+                		->subject('Thanks for signing up!')
+                		->htmlTemplate('emails/welcome.html.twig')
+                ;
 				
-				$mailer->send($email);
+                $mailer->send($email);
 				
-				$userAuthenticator->authenticateUser(
-						$user,
-						$formLoginAuthenticator,
-						$request
-				);
+                $userAuthenticator->authenticateUser(
+                    $user,
+                    $formLoginAuthenticator,
+                    $request
+                );
 				
-				return $this->redirectToRoute('app_profile');
-			}
+                return $this->redirectToRoute('app_profile');
+            }
         }
 
         return $this->render('auth/register.html.twig', [

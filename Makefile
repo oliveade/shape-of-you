@@ -95,11 +95,11 @@ phpstan:
 
 .PHONY: cs-check
 cs-check:
-	vendor/bin/php-cs-fixer check src --config=.php-cs-fixer.dist.php --verbose
+	vendor/bin/php-cs-fixer check src tests --config=.php-cs-fixer.dist.php --verbose
 
 .PHONY: cs-fix
 cs-fix:
-	vendor/bin/php-cs-fixer fix src --config=.php-cs-fixer.dist.php --verbose
+	vendor/bin/php-cs-fixer fix src tests --config=.php-cs-fixer.dist.php --verbose
 
 .PHONY: lint
 lint: ## Lint twig and yaml files.

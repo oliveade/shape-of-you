@@ -39,17 +39,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $birthdate = null;
 	
-	/**
-	 * @var string[] The user roles
-	 */
-	#[ORM\Column(type: Types::JSON)]
-	private array $roles = [];
+    /**
+     * @var string[] The user roles
+     */
+    #[ORM\Column(type: Types::JSON)]
+    private array $roles = [];
 	
-	/**
-	 * @var Collection<int, Garment>
-	 */
-	#[ORM\OneToMany(targetEntity: Garment::class, mappedBy: 'users')]
-	private Collection $garments;
+    /**
+     * @var Collection<int, Garment>
+     */
+    #[ORM\OneToMany(targetEntity: Garment::class, mappedBy: 'users')]
+    private Collection $garments;
 
     #[ORM\Column]
     private ?bool $deleted = null;
@@ -68,10 +68,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $deletedAt = null;
 	
-	public function __construct()
-	{
-		$this->garments = new ArrayCollection();
-	}
+    public function __construct()
+    {
+        $this->garments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -173,7 +173,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-	/**
+    /**
      * @return Collection<int, Garment>
      */
     public function getGarments(): Collection
@@ -192,17 +192,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     public function removeGarment(Garment $garment): static
-	{
-		if ($this->garments->removeElement($garment)) {
-			if ($garment->getUsers() === $this) {
-				$garment->setUsers(null);
-			}
-		}
+    {
+        if ($this->garments->removeElement($garment)) {
+            if ($garment->getUsers() === $this) {
+                $garment->setUsers(null);
+            }
+        }
 		
-		# j'ai une erreur ici mon ide me dit qu'il manque un return
-		# je l'ai ajouté pour régler le pb mais ça peut être supp si besoin
-		return $this;
-	}
+        // j'ai une erreur ici mon ide me dit qu'il manque un return
+        // je l'ai ajouté pour régler le pb mais ça peut être supp si besoin
+        return $this;
+    }
 
     public function isDeleted(): ?bool
     {
