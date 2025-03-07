@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\GarmentRepository;
+use Doctrine\ORM\Event\PostPersistEventArgs;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation\Timestampable;
 
@@ -41,6 +42,9 @@ class Garment
 
     #[ORM\Column(type: 'boolean')]
     private bool $isShared = false;
+
+    #[ORM\ManyToOne(inversedBy: 'garments')]
+    private ?History $history = null;
 
     #[ORM\Column]
     private ?bool $deleted = false;
@@ -170,6 +174,30 @@ class Garment
         $this->isShared = $isShared;
 
         return $this;
+    }
+
+    public function getHistory(): ?History
+    {
+        return $this->history;
+    }
+
+    public function setHistory(?History $history): static
+    {
+        $this->history = $history;
+
+        return $this;
+    }
+
+    #[ORM\PostPersist]
+    public function postPersist(PostPersistEventArgs $args): void
+    {
+        /** @var Garment $garment */
+        $garment = $args->getObject();
+
+        /** @var History $history */
+        $history = $args->getObjectManager()->getRepository(History::class)->findOneHistory(id: 1);
+
+        $garment->setHistory($history);
     }
 
     public function isDeleted(): ?bool
