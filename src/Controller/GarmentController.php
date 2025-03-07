@@ -79,6 +79,35 @@ class GarmentController extends AbstractController
         $this->addFlash('success', 'Vêtement supprimé avec succès.');
         return $this->redirectToRoute('my_wardrobe');
     }
+    #[Route('/garment/like/{id}', name: 'garment_like', methods: ['POST'])]
+    public function likeGarment(Garment $garment, EntityManagerInterface $em): Response
+    {
+        $user = $this->getUser();
+    
+        if (!$user instanceof User) {
+            $this->addFlash('error', 'Vous devez être connecté pour aimer un vêtement.');
+            return $this->redirectToRoute('app_login');
+        }
+    
+        if (!$user->getGarments()->contains($garment)) {
+            $newGarment = new Garment();
+            $newGarment->setName($garment->getName());
+            $newGarment->setColor($garment->getColor());
+            $newGarment->setStyle($garment->getStyle());
+            $newGarment->setImageUrl($garment->getImageUrl());
+            $newGarment->setUsers($user);
+    
+            $em->persist($newGarment);
+            $em->flush();
+    
+            $this->addFlash('success', 'Vêtement ajouté à votre garde-robe !');
+        } else {
+            $this->addFlash('info', 'Ce vêtement est déjà dans votre garde-robe.');
+        }
+    
+        return $this->redirectToRoute('shared_garments');
+    }
+    
 
     #[Route('/recommend-outfit', name: 'recommend_outfit')]
     public function recommendOutfit(EntityManagerInterface $em, OpenAIService $openAIService): Response
