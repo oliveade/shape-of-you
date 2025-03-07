@@ -10,7 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Service\OpenAIService;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
+#[IsGranted('ROLE_USER')]
 class GarmentController extends AbstractController
 {
     #[Route('/add-garment', name: 'add-garment', methods: ['GET', 'POST'])]
@@ -33,13 +35,9 @@ class GarmentController extends AbstractController
                 $garment->setImageUrl($fileName);
             }
 
-            // $user = $this->getUser();
-            // if (!$user) {
-            //     $this->addFlash('error', 'Vous devez être connecté pour ajouter un vêtement.');
-            //     return $this->redirectToRoute('app_login'); 
-            // }
+            $user = $this->getUser();
 
-            $user = $em->getRepository(User::class)->find(1);
+            // $user = $em->getRepository(User::class)->find(1);
             $garment->setUsers($user);
             $em->persist($garment);
             $em->flush();
