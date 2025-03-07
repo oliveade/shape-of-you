@@ -56,6 +56,10 @@ dmm: ## Migrate.
 query: ## Query the database.
 	$(SYMFONY_CONSOLE) dbal:run-sql
 
+.PHONY: fac
+fac: ## Add fixture.
+	$(SYMFONY_CONSOLE) make:factory
+
 .PHONY: fx
 fx: ## Add fixture.
 	$(SYMFONY_CONSOLE) make:fixture
