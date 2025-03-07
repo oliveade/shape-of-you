@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Garment;
-use App\Entity\User;
 use App\Service\OpenAIService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,7 +19,6 @@ class GarmentController extends AbstractController
     {
         if ($request->isMethod('POST')) {
             $garment = new Garment();
-            $garment->setName($request->request->get('name'));
             $garment->setType($request->request->get('type'));
             $garment->setColor($request->request->get('color'));
             $garment->setStyle($request->request->get('style'));
@@ -35,13 +33,7 @@ class GarmentController extends AbstractController
                 $garment->setImageUrl($fileName);
             }
 
-            // $user = $this->getUser();
-            // if (!$user) {
-            //     $this->addFlash('error', 'Vous devez être connecté pour ajouter un vêtement.');
-            //     return $this->redirectToRoute('app_login');
-            // }
-
-            $user = $em->getRepository(User::class)->find(1);
+            $user = $this->getUser();
             $garment->setUsers($user);
             $em->persist($garment);
             $em->flush();
@@ -62,7 +54,8 @@ class GarmentController extends AbstractController
     #[Route('/my_wardrobe', name: 'my_wardrobe')]
     public function Wardrobe(EntityManagerInterface $em): Response
     {
-        $garments = $em->getRepository(Garment::class)->findAll();
+        $user = $this->getUser();
+        $garments = $em->getRepository(Garment::class)->findBy(['users' => $user]);
        
         return $this->render('wardrobe.html.twig', [
             'garments' => $garments,
@@ -72,8 +65,7 @@ class GarmentController extends AbstractController
     #[Route('/garment/delete/{id}', name: 'garment_delete', methods: ['POST'])]
     public function deleteGarment(Garment $garment, EntityManagerInterface $em): Response
     {
-        // $user = $this->getUser();
-        $user = $em->getRepository(User::class)->find(1);
+        $user = $this->getUser();
         if ($garment->getUsers() !== $user) {
             $this->addFlash('error', 'Vous ne pouvez pas supprimer ce vêtement.');
 
@@ -89,7 +81,7 @@ class GarmentController extends AbstractController
     #[Route('/recommend-outfit', name: 'recommend_outfit')]
     public function recommendOutfit(EntityManagerInterface $em, OpenAIService $openAIService): Response
     {
-        $user = $em->getRepository(User::class)->find(1);
+        $user = $this->getUser();
         $garments = $em->getRepository(Garment::class)->findBy(['users' => $user]);
         if (count($garments) < 2) {
             $this->addFlash('error', 'Ajoutez plus de vêtements.');
@@ -122,8 +114,7 @@ class GarmentController extends AbstractController
     public function searchGarment(Request $request, EntityManagerInterface $em): Response
     {
         $query = $request->query->get('search');
-        // $user = $this->getUser();
-        $user = $em->getRepository(User::class)->find(1);
+        $user = $this->getUser();
         $garments = $em->getRepository(Garment::class)->createQueryBuilder('g')
             ->where('g.users = :user')
             ->andWhere('g.name LIKE :query OR g.type LIKE :query OR g.color LIKE :query OR g.style LIKE :query')
