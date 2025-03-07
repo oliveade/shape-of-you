@@ -45,10 +45,10 @@ final class ProfileController extends AbstractController
                 $this->addFlash('success', 'Mot de passe mis à jour avec succès.');
                 // return $this->redirectToRoute('app_profile');
             }
-        }		
+        }
 
         return $this->render('profile/index.html.twig', [
-                'form' => $form->createView(),
+            'form' => $form->createView(),
         ]);
     }
     
@@ -67,8 +67,8 @@ final class ProfileController extends AbstractController
         }
         
         return $this->render('profile/edit.html.twig', [
-                'user' => $user,
-                'form' => $form,
+            'user' => $user,
+            'form' => $form,
         ]);
     }
     
