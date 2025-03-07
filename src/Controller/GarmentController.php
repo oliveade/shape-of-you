@@ -4,13 +4,15 @@ namespace App\Controller;
 
 use App\Entity\Garment;
 use App\Entity\User;
+use App\Service\OpenAIService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Service\OpenAIService;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
+#[IsGranted('ROLE_USER')]
 class GarmentController extends AbstractController
 {
     #[Route('/add-garment', name: 'add-garment', methods: ['GET', 'POST'])]
@@ -28,7 +30,7 @@ class GarmentController extends AbstractController
             $garment->setShared($request->request->getBoolean('isShared', false));
             $imageFile = $request->files->get('imageUrl');
             if ($imageFile) {
-                $fileName = uniqid() . '.' . $imageFile->guessExtension();
+                $fileName = uniqid().'.'.$imageFile->guessExtension();
                 $imageFile->move($this->getParameter('uploads_directory'), $fileName);
                 $garment->setImageUrl($fileName);
             }
@@ -36,7 +38,7 @@ class GarmentController extends AbstractController
             // $user = $this->getUser();
             // if (!$user) {
             //     $this->addFlash('error', 'Vous devez être connecté pour ajouter un vêtement.');
-            //     return $this->redirectToRoute('app_login'); 
+            //     return $this->redirectToRoute('app_login');
             // }
 
             $user = $em->getRepository(User::class)->find(1);
@@ -44,6 +46,7 @@ class GarmentController extends AbstractController
             $em->persist($garment);
             $em->flush();
             $this->addFlash('success', 'Vêtement ajouté avec succès !');
+
             return $this->redirectToRoute('my_wardrobe');
         }
 
@@ -62,9 +65,10 @@ class GarmentController extends AbstractController
         $garments = $em->getRepository(Garment::class)->findAll();
        
         return $this->render('wardrobe.html.twig', [
-            'garments' => $garments
+            'garments' => $garments,
         ]);
     }
+
     #[Route('/garment/delete/{id}', name: 'garment_delete', methods: ['POST'])]
     public function deleteGarment(Garment $garment, EntityManagerInterface $em): Response
     {
@@ -72,23 +76,24 @@ class GarmentController extends AbstractController
         $user = $em->getRepository(User::class)->find(1);
         if ($garment->getUsers() !== $user) {
             $this->addFlash('error', 'Vous ne pouvez pas supprimer ce vêtement.');
+
             return $this->redirectToRoute('my_wardrobe');
         }
         $em->remove($garment);
         $em->flush();
         $this->addFlash('success', 'Vêtement supprimé avec succès.');
+
         return $this->redirectToRoute('my_wardrobe');
     }
 
     #[Route('/recommend-outfit', name: 'recommend_outfit')]
     public function recommendOutfit(EntityManagerInterface $em, OpenAIService $openAIService): Response
     {
-
         $user = $em->getRepository(User::class)->find(1);
         $garments = $em->getRepository(Garment::class)->findBy(['users' => $user]);
         if (count($garments) < 2) {
-
             $this->addFlash('error', 'Ajoutez plus de vêtements.');
+
             return $this->redirectToRoute('my_wardrobe');
         }
         $suggestedGarmentsData = $openAIService->generateOutfitSuggestion($garments);
@@ -98,7 +103,7 @@ class GarmentController extends AbstractController
                 'type' => $item['type'],
                 'color' => $item['color'],
                 'style' => $item['style'],
-                'users' => $user
+                'users' => $user,
             ]);
             if ($garment) {
                 $selectedGarments[] = $garment;
@@ -106,11 +111,13 @@ class GarmentController extends AbstractController
         }
 
         $imageUrl = $openAIService->generateOutfitImage($selectedGarments);
+
         return $this->render('/garment/recommendation.html.twig', [
             'selectedGarments' => $selectedGarments,
-            'imageUrl' => $imageUrl
+            'imageUrl' => $imageUrl,
         ]);
     }
+
     #[Route('/garment/search', name: 'garment_search', methods: ['GET'])]
     public function searchGarment(Request $request, EntityManagerInterface $em): Response
     {
@@ -121,12 +128,12 @@ class GarmentController extends AbstractController
             ->where('g.users = :user')
             ->andWhere('g.name LIKE :query OR g.type LIKE :query OR g.color LIKE :query OR g.style LIKE :query')
             ->setParameter('user', $user)
-            ->setParameter('query', '%' . $query . '%')
+            ->setParameter('query', '%'.$query.'%')
             ->getQuery()
             ->getResult();
 
         return $this->render('/wardrobe.html.twig', [
-            'garments' => $garments
+            'garments' => $garments,
         ]);
     }
 }

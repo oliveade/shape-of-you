@@ -2,17 +2,18 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex items-center">
-                <a href="{{ path('app_home') }}" class="text-xl font-bold flex items-center space-x-2">
+                <a href="{{ path('app_index') }}" class="text-xl font-bold flex items-center space-x-2">
                     <img src="/img/icons/logo.png" alt="Logo" class="w-10 h-10 bg-gray-300 rounded-full p-1">
                     <span>Shape of You</span>
                 </a>
             </div>
             <div class="hidden md:flex space-x-4 items-center">
-                <a href="{{ path('app_home') }}" class="hover:text-gray-600">Accueil</a>
+                <a href="{{ path('app_index') }}" class="hover:text-gray-600">Accueil</a>
                 {% if not app.user %}
                     <a href="{{ path('app_login') }}" class="hover:text-gray-600">Connexion</a>
                     <a href="{{ path('app_register') }}" class="hover:text-gray-600">Inscription</a>
                 {% else %}
+                    <a href="{{ path('app_dashboard') }}" class="block hover:text-gray-600">Dashboard</a>
                     <a href="{{ path('app_profile') }}" class="hover:text-gray-600">Profil</a>
                     {% if is_granted('ROLE_ADMIN') %}
                         <a href="{{ path('app_admin') }}" class="hover:text-gray-600">Admin</a>
@@ -28,10 +29,19 @@
         </div>
     </div>
     <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-rose-400 to-red-400 text-white text-center space-y-2 py-2 px-4 shadow-lg">
-        <a href="{{ path('app_home') }}" class="block hover:text-gray-600">Accueil</a>
+        <a href="{{ path('app_index') }}" class="block hover:text-gray-600">Accueil</a>
         <hr>
-        <a href="{{ path('app_login') }}" class="block hover:text-gray-600">Connexion</a>
-        <hr>
-        <a href="{{ path('app_register') }}" class="block hover:text-gray-600">Inscription</a>
+        {% if not app.user %}
+            <a href="{{ path('app_login') }}" class="block hover:text-gray-600">Connexion</a>
+            <hr>
+            <a href="{{ path('app_register') }}" class="block hover:text-gray-600">Inscription</a>
+        {% else %}
+            <a href="{{ path('app_dashboard') }}" class="block hover:text-gray-600">Dashboard</a>
+            <a href="{{ path('app_profile') }}" class="hover:text-gray-600">Profil</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('app_admin') }}" class="hover:text-gray-600">Admin</a>
+            {% endif %}
+            <a href="{{ path('app_logout') }}" class="hover:text-gray-600">Déconnexion</a>
+        {% endif %}
     </div>
 </nav>
