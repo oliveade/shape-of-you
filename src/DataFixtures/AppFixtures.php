@@ -16,6 +16,7 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             UserFixtures::class,
+            GarmentFixtures::class,
         ];
     }
 }
