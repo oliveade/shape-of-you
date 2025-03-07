@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a88f28b2-8cab-441d-8806-ada320abcdd9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/community/social.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/community/social.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/garment/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/garment/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/photos.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/photos.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +237,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
