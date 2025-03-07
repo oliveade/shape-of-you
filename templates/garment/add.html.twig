@@ -2,14 +2,14 @@
 
 {% block body %}
 	<div class="container mx-auto px-4 py-8">
-		<h1 class="text-2xl font-bold mb-6">Ajouter un vêtement à ma garde-robe</h1>
-		<form action="{{ path('add-garment') }}" method="POST" enctype="multipart/form-data" class="bg-gray-100 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+		<h1 class="text-2xl text-gray-700 font-bold mb-6">Ajouter un vêtement à ma garde-robe</h1>
+		<form action="{{ path('add-garment') }}" method="POST" enctype="multipart/form-data" class="bg-gray-100 grid grid-cols-2 shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
-			<div class="mb-4">
+			<div class="mb-4 mx-2">
 				<label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nom</label>
 				<input type="text" id="name" name="name" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrez le nom du vêtement">
 			</div>
-			<div class="mb-4">
+			<div class="mb-4 mx-2">
 				<label for="type" class="block text-gray-700 text-sm font-bold mb-2">Type</label>
 				<select name="type" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline">
 					<option>Combinaison</option>
@@ -25,17 +25,17 @@
 				</select>
 			</div>
 
-			<div class="mb-4">
+			<div class="mb-4 mx-2">
 				<label for="color" class="block text-gray-700 text-sm font-bold mb-2">Couleur</label>
 				<input type="text" id="color" name="color" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrez la couleur du vêtement">
 			</div>
 
-			<div class="mb-4">
+			<div class="mb-4 mx-2">
 				<label for="style" class="block text-gray-700 text-sm font-bold mb-2">Style</label>
 				<input type="text" id="style" name="style" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline" placeholder="Ex: Casual, Chic, Sport, etc.">
 			</div>
 
-			<div class="mb-4">
+			<div class="mb-4 mx-2">
 				<label for="season" class="block text-gray-700 text-sm font-bold mb-2">Saison</label>
 				<select name="season" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline">
 					<option>Été</option>
@@ -44,12 +44,12 @@
 				</select>
 			</div>
 
-			<div class="mb-4">
+			<div class="mb-4 mx-2">
 				<label for="material" class="block text-gray-700 text-sm font-bold mb-2">Matériau</label>
 				<input type="text" id="material" name="material" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline" placeholder="Ex: Coton, Laine, Jean, etc.">
 			</div>
 
-			<div class="mb-4">
+			<div class="mb-4 mx-2">
 				<label for="occasion" class="block text-gray-700 text-sm font-bold mb-2">Occasion</label>
 				<select name="occasion" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline">
 					<option>Casual</option>
@@ -59,16 +59,21 @@
 				</select>
 			</div>
 
-			<div class="mb-4">
+			<div class="mb-4 mx-2">
 				<label for="imageUrl" class="block text-gray-700 text-sm font-bold mb-2">Image</label>
 				<input type="file" id="imageUrl" name="imageUrl" accept="image/*" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline">
 			</div>
-			<div class="mb-4">
-				<label for="isShared" class="block text-gray-700 text-sm font-bold mb-2">Partager ce vêtement</label>
-				<input type="checkbox" id="isShared" name="isShared" value="1" class="shadow border rounded w-full">
+			<div class="mb-4 mx-2 flex items-center">
+				<label for="isShared" class="block text-gray-700 text-sm font-bold mr-2">Partager ce vêtement</label>
+				<label class="relative inline-flex items-center cursor-pointer">
+					<input type="checkbox" id="isShared" name="isShared" value="1" class="sr-only peer">
+					<div class="w-11 h-6 bg-gray-200 peer-focus:ring-4 peer-focus:ring-rose		-300 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full
+        peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white
+        after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
+				</label>
 			</div>
-			<div class="flex items-center justify-between">
-				<button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+			<div class="text-center">
+				<button type="submit" class="bg-rose-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
 					Ajouter
 				</button>
 			</div>

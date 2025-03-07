@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Dto\PasswordUpdateDto;
+use App\Entity\User;
 use App\Form\PasswordUpdateType;
 use App\Form\UserSelfEditType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -44,30 +45,41 @@ final class ProfileController extends AbstractController
                 $this->addFlash('success', 'Mot de passe mis à jour avec succès.');
                 // return $this->redirectToRoute('app_profile');
             }
-        }
-		
+        }		
+
         return $this->render('profile/index.html.twig', [
-            'form' => $form->createView(),
+                'form' => $form->createView(),
         ]);
     }
-	
+    
     #[Route('/edit', name: 'app_profile_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, EntityManagerInterface $entityManager, Security $security): Response
     {
         $user = $security->getUser();
-		
+        
         $form = $this->createForm(UserSelfEditType::class, $user);
         $form->handleRequest($request);
-		
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
-			
+            
             return $this->redirectToRoute('app_profile', [], Response::HTTP_SEE_OTHER);
         }
-		
+        
         return $this->render('profile/edit.html.twig', [
-            'user' => $user,
-            'form' => $form,
+                'user' => $user,
+                'form' => $form,
         ]);
+    }
+    
+    #[Route('/{id}', name: 'app_profile_delete', methods: ['POST'])]
+    public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->getPayload()->getString('_token'))) {
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
+        
+        return $this->redirectToRoute('app_index', [], Response::HTTP_SEE_OTHER);
     }
 }
