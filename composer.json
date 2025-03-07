@@ -9,33 +9,34 @@
         "ext-iconv": "*",
         "doctrine/dbal": "^3.9.4",
         "doctrine/doctrine-bundle": "^2.13.2",
-        "doctrine/doctrine-migrations-bundle": "^3.4",
-        "doctrine/orm": "^3.3.1",
-        "php-cs-fixer/shim": "^3.68.1",
+        "doctrine/doctrine-migrations-bundle": "^3.4.1",
+        "doctrine/orm": "^3.3.2",
+        "google/cloud-vision": "^2.0",
+        "openai-php/client": "^0.10.3",
+        "php-cs-fixer/shim": "^3.70.2",
+        "stof/doctrine-extensions-bundle": "^1.13",
         "symfony/console": "7.2.*",
         "symfony/dotenv": "7.2.*",
-        "symfony/flex": "^2.4.7",
+        "symfony/flex": "^2.5.0",
         "symfony/form": "7.2.*",
         "symfony/framework-bundle": "7.2.*",
         "symfony/http-client": "7.2.*",
         "symfony/mailer": "7.2.*",
+        "symfony/mime": "7.2.*",
         "symfony/monolog-bundle": "^3.10",
         "symfony/rate-limiter": "7.2.*",
         "symfony/resend-mailer": "7.2.*",
         "symfony/runtime": "7.2.*",
         "symfony/security-bundle": "7.2.*",
-        "symfony/stimulus-bundle": "^2.22.1",
-        "google/cloud-vision": "^2.0",
-        "openai-php/client": "^0.10.3",
-        "symfony/mime": "7.2.*",
+        "symfony/stimulus-bundle": "^2.23.0",
         "symfony/twig-bundle": "7.2.*",
-        "symfony/ux-turbo": "^2.22.1",
+        "symfony/ux-turbo": "^2.23.0",
         "symfony/validator": "7.2.*",
         "symfony/webhook": "7.2.*",
         "symfony/webpack-encore-bundle": "^2.2",
         "symfony/yaml": "7.2.*",
-        "twig/extra-bundle": "^2.12|^3.18",
-        "twig/twig": "^2.12|^3.18"
+        "twig/extra-bundle": "^2.12|^3.20",
+        "twig/twig": "^2.12|^3.20"
     },
     "config": {
         "allow-plugins": {
@@ -89,6 +90,7 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^4.0",
+        "phpstan/phpstan": "^2.1.7",
         "phpunit/phpunit": "^9.6.22",
         "symfony/browser-kit": "7.2.*",
         "symfony/css-selector": "7.2.*",
@@ -97,6 +99,6 @@
         "symfony/phpunit-bridge": "^7.2",
         "symfony/stopwatch": "7.2.*",
         "symfony/web-profiler-bundle": "7.2.*",
-        "phpstan/phpstan": "^2.1"
+        "zenstruck/foundry": "^2.3"
     }
 }
