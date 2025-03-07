@@ -20,9 +20,8 @@ class OpenAIService
         $prompt = "L'utilisateur possède ces vêtements : " . implode(", ", $garmentDescriptions) .
             ". Propose une tenue complète et cohérente sous forme JSON : [{\"name\": \"nom\", \"type\": \"type\", \"color\": \"couleur\", \"style\": \"style\"}].";
 
-        // Utiliser l'endpoint pour le modèle de chat
         $response = $this->client->chat()->create([
-            'model' => 'gpt-3.5-turbo', // ou 'gpt-4' si disponible pour ton compte
+            'model' => 'gpt-3.5-turbo', 
             'messages' => [
                 [
                     'role' => 'user',

@@ -12,7 +12,7 @@ use App\Service\OpenAIService;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[IsGranted('ROLE_USER')]
+// #[IsGranted('ROLE_USER')]
 class GarmentController extends AbstractController
 {
     #[Route('/add-garment', name: 'add-garment', methods: ['GET', 'POST'])]
