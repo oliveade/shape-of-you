@@ -3,47 +3,47 @@
 {% block title %}Mon Tableau de Bord{% endblock %}
 
 {% block body %}
-<div class="container mx-auto mt-10 px-4">
-    <h1 class="text-3xl font-bold text-center">Bienvenue sur votre tableau de bord, test !</h1>
-    <p class="text-center text-gray-600 mt-2">Que souhaitez-vous faire aujourd'hui ?</p>
+    <div class="container min-h-screen mx-auto mt-10 px-4">
+        <h1 class="text-3xl font-bold text-center">Bienvenue sur votre tableau de bord, test !</h1>
+        <p class="text-center text-gray-600 mt-2">Que souhaitez-vous faire aujourd'hui ?</p>
 
-    <div class="mt-8 flex justify-center">
-        <a href="{{ path('user-add-garment') }}" 
-           class="inline-block bg-blue-500 text-white text-lg font-medium py-3 px-8 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg transition">
-            ➕ Ajouter un vêtement à ma garde-robe
-        </a>
+        <div class="mt-8 flex justify-center">
+            <a href="{{ path('user-add-garment') }}"
+               class="inline-block bg-blue-500 text-white text-lg font-medium py-3 px-8 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg transition">
+                ➕ Ajouter un vêtement à ma garde-robe
+            </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+
+            <a href="{{ path('app_upload_photo') }}" class="bg-blue-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center hover:bg-blue-600 transition">
+                <span class="text-4xl">📸</span>
+                <p class="mt-4 text-lg font-semibold">Analyser une tenue</p>
+            </a>
+
+            <a href="{{ path('recommend_outfit') }}" class="bg-green-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center hover:bg-green-600 transition">
+                <span class="text-4xl">🎨</span>
+                <p class="mt-4 text-lg font-semibold">Propositions de tenues</p>
+            </a>
+
+            <a href="{{ path('recherche_tenue') }}" class="bg-teal-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center hover:bg-teal-600 transition">
+                <span class="text-4xl">🔍</span>
+                <p class="mt-4 text-lg font-semibold">Rechercher des tenues</p>
+            </a>
+
+            <a href="{{ path('my_wardrobe') }}" class="bg-yellow-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center hover:bg-yellow-600 transition">
+                <span class="text-4xl">🛍️</span>
+                <p class="mt-4 text-lg font-semibold">Accéder à ma garde-robe</p>
+            </a>
+
+            <a href="{{ path('historique_tenues') }}" class="bg-gray-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center hover:bg-gray-600 transition">
+                <span class="text-4xl">📖</span>
+                <p class="mt-4 text-lg font-semibold">Voir l'historique</p>
+            </a>
+
+            <a href="{{ path('onglet_social') }}" class="bg-red-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center hover:bg-red-600 transition">
+                <span class="text-4xl">🌐</span>
+                <p class="mt-4 text-lg font-semibold">Social : Tenues des autres</p>
+            </a>
+        </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-
-        <a href="{{ path('app_upload_photo') }}" class="bg-blue-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center hover:bg-blue-600 transition">
-            <span class="text-4xl">📸</span>
-            <p class="mt-4 text-lg font-semibold">Analyser une tenue</p>
-        </a>
-
-        <a href="{{ path('recommend_outfit') }}" class="bg-green-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center hover:bg-green-600 transition">
-            <span class="text-4xl">🎨</span>
-            <p class="mt-4 text-lg font-semibold">Propositions de tenues</p>
-        </a>
-
-        <a href="{{ path('recherche_tenue') }}" class="bg-teal-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center hover:bg-teal-600 transition">
-            <span class="text-4xl">🔍</span>
-            <p class="mt-4 text-lg font-semibold">Rechercher des tenues</p>
-        </a>
-
-        <a href="{{ path('my_wardrobe') }}" class="bg-yellow-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center hover:bg-yellow-600 transition">
-            <span class="text-4xl">🛍️</span>
-            <p class="mt-4 text-lg font-semibold">Accéder à ma garde-robe</p>
-        </a>
-
-        <a href="{{ path('historique_tenues') }}" class="bg-gray-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center hover:bg-gray-600 transition">
-            <span class="text-4xl">📖</span>
-            <p class="mt-4 text-lg font-semibold">Voir l'historique</p>
-        </a>
-
-        <a href="{{ path('onglet_social') }}" class="bg-red-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center hover:bg-red-600 transition">
-            <span class="text-4xl">🌐</span>
-            <p class="mt-4 text-lg font-semibold">Social : Tenues des autres</p>
-        </a>
-    </div>
-</div>
 {% endblock %}
