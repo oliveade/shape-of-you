@@ -35,13 +35,13 @@ class GarmentController extends AbstractController
                 $garment->setImageUrl($fileName);
             }
 
-            // $user = $this->getUser();
+            $user = $this->getUser();
             // if (!$user) {
             //     $this->addFlash('error', 'Vous devez être connecté pour ajouter un vêtement.');
             //     return $this->redirectToRoute('app_login');
             // }
 
-            $user = $em->getRepository(User::class)->find(1);
+            // $user = $em->getRepository(User::class)->find(1);
             $garment->setUsers($user);
             $em->persist($garment);
             $em->flush();
