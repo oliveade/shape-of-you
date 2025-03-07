@@ -8,8 +8,13 @@
         <h2 class="text-3xl font-bold mb-2">Bienvenue sur Shape Of You</h2>
         <p class="mb-4">Découvrez une expérience incroyable adaptée à vos besoins.</p>
         <div class="flex flex-row space-x-4">
-            <a href="{{ path('app_register') }}" class="bg-white text-red-400 py-2 px-4 rounded-full font-semibold hover:bg-gray-200">S'inscrire</a>
-            <a href="{{ path('app_login') }}" class="bg-white text-red-400 py-2 px-4 rounded-full font-semibold hover:bg-gray-200">Se connecter</a>
+            {% if not app.user %}
+                <a href="{{ path('app_register') }}" class="bg-white text-red-400 py-2 px-4 rounded-full font-semibold hover:bg-gray-200">S'inscrire</a>
+                <a href="{{ path('app_login') }}" class="bg-white text-red-400 py-2 px-4 rounded-full font-semibold hover:bg-gray-200">Se connecter</a>
+            {% else %}
+                <a href="{{ path('app_dashboard') }}" class="bg-white text-red-400 py-2 px-4 rounded-full font-semibold hover:bg-gray-200">Se connecter</a>
+                <a href="{{ path('app_logout') }}" class="bg-white text-red-400 py-2 px-4 rounded-full font-semibold hover:bg-gray-200">Se déconnecter</a>
+            {% endif %}
         </div>
     </header>
     <main class="flex-1 container mx-auto p-4">
