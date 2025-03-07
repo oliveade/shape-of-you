@@ -15,9 +15,6 @@
                 {% else %}
                     <a href="{{ path('app_dashboard') }}" class="block hover:text-gray-600">Dashboard</a>
                     <a href="{{ path('app_profile') }}" class="hover:text-gray-600">Profil</a>
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('app_admin') }}" class="hover:text-gray-600">Admin</a>
-                    {% endif %}
                     <a href="{{ path('app_logout') }}" class="hover:text-gray-600">Déconnexion</a>
                 {% endif %}
             </div>
@@ -38,9 +35,6 @@
         {% else %}
             <a href="{{ path('app_dashboard') }}" class="block hover:text-gray-600">Dashboard</a>
             <a href="{{ path('app_profile') }}" class="hover:text-gray-600">Profil</a>
-            {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('app_admin') }}" class="hover:text-gray-600">Admin</a>
-            {% endif %}
             <a href="{{ path('app_logout') }}" class="hover:text-gray-600">Déconnexion</a>
         {% endif %}
     </div>

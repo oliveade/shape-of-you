@@ -3,39 +3,39 @@
 {% block title %} Ma garde-robe {% endblock %}
 
 {% block body %}
-<div class="container mx-auto p-6 bg-gray-100 min-h-screen">
+    <div class="container mx-auto p-6 bg-gray-100 min-h-screen">
 
-    <div class="flex flex-col md:flex-row justify-between items-center bg-white p-4 shadow-md rounded-lg">
-        <h2 class="text-2xl font-bold text-gray-800">Ma Garde-Robe</h2>
-        <form method="GET" action="{{ path('garment_search') }}" class="flex items-center mt-4 md:mt-0 w-full md:w-1/2">
-            <input 
-                type="search" 
-                name="search" 
-                placeholder="Rechercher un vêtement..." 
-                class="border border-gray-300 p-2 rounded-l-lg w-full focus:ring-2 focus:ring-blue-400 outline-none"
-            >
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 transition">
-                <i class="fas fa-search"></i>
-            </button>
-        </form>
-    </div>
+        <div class="flex flex-col md:flex-row justify-between items-center bg-white p-4 shadow-md rounded-lg">
+            <h2 class="text-2xl font-bold text-gray-800">Ma Garde-Robe</h2>
+            <form method="GET" action="{{ path('garment_search') }}" class="flex items-center mt-4 md:mt-0 w-full md:w-1/2">
+                <input
+                        type="search"
+                        name="search"
+                        placeholder="Rechercher un vêtement..."
+                        class="border border-gray-300 p-2 rounded-l-lg w-full focus:ring-2 focus:ring-rose-400 outline-none"
+                >
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 transition">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
 
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
             {% for garment in garments %}
                 <div class="bg-white border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition relative">
-                    <img 
-                        src="{{ asset('uploads/' ~ garment.imageUrl) }}" 
-                        alt="{{ garment.style }}" 
-                        class="w-full h-56 object-cover"
+                    <img
+                            src="{{ asset('uploads/' ~ garment.imageUrl) }}"
+                            alt="{{ garment.style }}"
+                            class="w-full h-56 object-cover"
                     >
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-gray-900">{{ garment.name }}</h3>
                         <p class="text-gray-600 text-sm">{{ garment.color }}</p>
                     </div>
 
-                    <form action="{{ path('garment_delete', {id: garment.id}) }}" method="POST" 
-                        class="absolute top-2 right-2 bg-white p-2 rounded-full shadow-md hover:bg-red-500 transition">
+                    <form action="{{ path('garment_delete', {id: garment.id}) }}" method="POST"
+                          class="absolute top-2 right-2 bg-white p-2 rounded-full shadow-md hover:bg-red-500 transition">
                         <button type="submit" class="text-gray-600 hover:text-white">
                             <i class="fas fa-trash text-lg"></i>
                         </button>
@@ -45,5 +45,5 @@
         </div>
 
 
-</div>
+    </div>
 {% endblock %}
