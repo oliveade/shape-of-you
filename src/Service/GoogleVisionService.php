@@ -2,12 +2,12 @@
 
 namespace App\Service;
 
+use Google\Cloud\Vision\V1\AnnotateImageRequest;
+use Google\Cloud\Vision\V1\BatchAnnotateImagesRequest;
 use Google\Cloud\Vision\V1\Client\ImageAnnotatorClient;
 use Google\Cloud\Vision\V1\Feature;
 use Google\Cloud\Vision\V1\Feature\Type;
 use Google\Cloud\Vision\V1\Image;
-use Google\Cloud\Vision\V1\AnnotateImageRequest;
-use Google\Cloud\Vision\V1\BatchAnnotateImagesRequest; 
 
 class GoogleVisionService
 {
@@ -34,7 +34,7 @@ class GoogleVisionService
         $response = $this->imageAnnotator->batchAnnotateImages($batchRequest);
         $responses = $response->getResponses();
         if (empty($responses) || $responses[0]->hasError()) {
-            return []; 
+            return [];
         }
 
         $localizedObjects = $responses[0]->getLocalizedObjectAnnotations();
@@ -44,12 +44,13 @@ class GoogleVisionService
             $results[] = [
                 'name' => $object->getName(),
                 'confidence' => $object->getScore(),
-                'vertices' => array_map(fn($vertex) => ['x' => $vertex->getX(), 'y' => $vertex->getY()], 
-                    iterator_to_array($object->getBoundingPoly()->getNormalizedVertices()))
+                'vertices' => array_map(fn ($vertex) => ['x' => $vertex->getX(), 'y' => $vertex->getY()],
+                    iterator_to_array($object->getBoundingPoly()->getNormalizedVertices())),
             ];
         }
 
         $this->imageAnnotator->close();
+
         return $results;
     }
 }

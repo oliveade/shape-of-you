@@ -13,34 +13,34 @@ class PasswordUpdateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-				->add('oldPassword', PasswordType::class , [
-						'attr' => [
-								'class' => 'w-full mt-1 px-4 py-2 border rounded-lg focus:ring focus:ring-rose-300 focus:outline-none'
-						],
-						'label' => 'Ancien mot de passe',
-						'label_attr' => ['class' => 'block text-sm font-medium text-gray-700'],
+				->add('oldPassword', PasswordType::class, [
+				    'attr' => [
+				        'class' => 'w-full mt-1 px-4 py-2 border rounded-lg focus:ring focus:ring-rose-300 focus:outline-none',
+				    ],
+				    'label' => 'Ancien mot de passe',
+				    'label_attr' => ['class' => 'block text-sm font-medium text-gray-700'],
 				])
-				->add('newPassword', PasswordType::class , [
-						'attr' => [
-								'class' => 'w-full mt-1 px-4 py-2 border rounded-lg focus:ring focus:ring-rose-300 focus:outline-none'
-						],
-						'label' => 'Nouveau mot de passe',
-						'label_attr' => ['class' => 'block text-sm font-medium text-gray-700'],
+				->add('newPassword', PasswordType::class, [
+				    'attr' => [
+				        'class' => 'w-full mt-1 px-4 py-2 border rounded-lg focus:ring focus:ring-rose-300 focus:outline-none',
+				    ],
+				    'label' => 'Nouveau mot de passe',
+				    'label_attr' => ['class' => 'block text-sm font-medium text-gray-700'],
 				])
-				->add('confirmPassword', PasswordType::class , [
-						'attr' => [
-								'class' => 'w-full mt-1 px-4 py-2 border rounded-lg focus:ring focus:ring-rose-300 focus:outline-none'
-						],
-						'label' => 'Confirmation de mot de passe',
-						'label_attr' => ['class' => 'block text-sm font-medium text-gray-700'],
+				->add('confirmPassword', PasswordType::class, [
+				    'attr' => [
+				        'class' => 'w-full mt-1 px-4 py-2 border rounded-lg focus:ring focus:ring-rose-300 focus:outline-none',
+				    ],
+				    'label' => 'Confirmation de mot de passe',
+				    'label_attr' => ['class' => 'block text-sm font-medium text-gray-700'],
 				])
-		;
+        ;
     }
 	
-	public function configureOptions(OptionsResolver $resolver): void
-	{
-		$resolver->setDefaults([
-				'data_class' => PasswordUpdateDto::class, // Associer le DTO au formulaire
-		]);
-	}
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => PasswordUpdateDto::class, // Associer le DTO au formulaire
+        ]);
+    }
 }
