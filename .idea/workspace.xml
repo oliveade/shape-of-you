@@ -4,27 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71109843-af04-427f-a2fb-40a1abe4de0a" name="Changes" comment="feat(users): add userfixtures">
+    <list default="true" id="71109843-af04-427f-a2fb-40a1abe4de0a" name="Changes" comment="style: format file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Auth/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Auth/RegistrationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dto/PasswordUpdateDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dto/PasswordUpdateDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dto/RegisterDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dto/RegisterDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Garment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Garment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Outfit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Outfit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Factory/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factory/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PasswordUpdateType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PasswordUpdateType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserSelfEditType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserSelfEditType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/ContentApiService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ContentApiService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/GoogleVisionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/GoogleVisionService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/OpenAIService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/OpenAIService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +60,9 @@
     <option name="filePaths">
       <option value="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" />
     </option>
+  </component>
+  <component name="PhpExternalFormatterCheckinHandler">
+    <option name="shouldReformat" value="true" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="php 8.3">
     <include_path>
@@ -237,6 +223,9 @@
       <path value="$PROJECT_DIR$/vendor/stof/doctrine-extensions-bundle" />
     </include_path>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -245,29 +234,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feat__users__add__userfixtures&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/junior/PhpstormProjects/shape-of-you&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.php.quality.tools.php.cs.fixer&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "feat__users__add__userfixtures",
+    "last_opened_file_path": "/Users/junior/PhpstormProjects/shape-of-you",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mathe\Desktop\Git\shape-of-you\src\Repository" />
@@ -312,7 +301,7 @@
       <workItem from="1741019730291" duration="45003000" />
       <workItem from="1741257164298" duration="15691000" />
       <workItem from="1741282000280" duration="591000" />
-      <workItem from="1741348458478" duration="4381000" />
+      <workItem from="1741348458478" duration="5027000" />
     </task>
     <task id="LOCAL-00001" summary="feat(users): add userfixtures">
       <option name="closed" value="true" />
@@ -322,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741352314131</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="style: format file">
+      <option name="closed" value="true" />
+      <created>1741352894841</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741352894841</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +338,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat(users): add userfixtures" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(users): add userfixtures" />
+    <MESSAGE value="style: format file" />
+    <option name="LAST_COMMIT_MESSAGE" value="style: format file" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
