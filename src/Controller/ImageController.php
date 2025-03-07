@@ -20,8 +20,8 @@ class ImageController extends AbstractController
         if (!$fileupload) {
             return new JsonResponse(['error' => 'Aucun fichier reçu'], 400);
         }
-        $uploadDir = $this->getParameter('kernel.project_dir') . '/public/uploads/';
-        $fileName = uniqid() . '.' . $fileupload->guessExtension();
+        $uploadDir = $this->getParameter('kernel.project_dir').'/public/uploads/';
+        $fileName = uniqid().'.'.$fileupload->guessExtension();
 
         try {
             $fileupload->move($uploadDir, $fileName);
@@ -29,7 +29,7 @@ class ImageController extends AbstractController
             return new JsonResponse(['error' => 'Erreur lors de l\'upload'], 500);
         }
 
-        $imagePath = $uploadDir . $fileName;
+        $imagePath = $uploadDir.$fileName;
         $results = $visionService->analyzeImage($imagePath);
 
         if (isset($results['error'])) {

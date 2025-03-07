@@ -13,16 +13,16 @@ class UserSelfEditType extends AbstractType
     {
         $builder
 				->add('email', null, [
-					'attr' => ['class' => 'w-full px-4 py-2 mb-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-rose-400']
-			])
+				    'attr' => ['class' => 'w-full px-4 py-2 mb-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-rose-400'],
+				])
 				->add('username', null, [
-					'attr' => ['class' => 'w-full px-4 py-2 mb-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-rose-400']
-			])
+				    'attr' => ['class' => 'w-full px-4 py-2 mb-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-rose-400'],
+				])
 				->add('birthdate', null, [
-					'widget' => 'single_text',
-					'attr' => ['class' => 'w-full px-4 py-2 mb-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-rose-400']
-			])
-		;
+				    'widget' => 'single_text',
+				    'attr' => ['class' => 'w-full px-4 py-2 mb-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-rose-400'],
+				])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

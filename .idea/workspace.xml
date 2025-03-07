@@ -4,29 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71109843-af04-427f-a2fb-40a1abe4de0a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shape-of-you.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shape-of-you.iml" afterDir="false" />
+    <list default="true" id="71109843-af04-427f-a2fb-40a1abe4de0a" name="Changes" comment="feat(users): add userfixtures">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.override.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.override.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20250205111528.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20250305084845.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20250305113158.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20250306131104.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20250306131525.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20250306162649.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20250306162908.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20250306165130.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Auth/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Auth/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dto/PasswordUpdateDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dto/PasswordUpdateDto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dto/RegisterDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dto/RegisterDto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Garment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Garment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Outfit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Outfit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Factory/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factory/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PasswordUpdateType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PasswordUpdateType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/UserSelfEditType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserSelfEditType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/ContentApiService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ContentApiService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/GoogleVisionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/GoogleVisionService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/OpenAIService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/OpenAIService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,18 +58,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "jdjemba"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jdjemba&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:/oliveade/shape-of-you.git",
-    "accountId": "1b287ad8-d7f8-4609-b6d0-50eed3925634"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:/oliveade/shape-of-you.git&quot;,
+    &quot;accountId&quot;: &quot;1b287ad8-d7f8-4609-b6d0-50eed3925634&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -247,23 +245,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feat__users__add__userfixtures",
-    "last_opened_file_path": "C:/Users/mathe/Desktop/Git/shape-of-you/src/Repository",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.php.quality.tools.php.cs.fixer",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat__users__add__userfixtures&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/junior/PhpstormProjects/shape-of-you&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.php.quality.tools.php.cs.fixer&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mathe\Desktop\Git\shape-of-you\src\Repository" />
@@ -308,8 +312,17 @@
       <workItem from="1741019730291" duration="45003000" />
       <workItem from="1741257164298" duration="15691000" />
       <workItem from="1741282000280" duration="591000" />
-      <workItem from="1741348458478" duration="3700000" />
+      <workItem from="1741348458478" duration="4381000" />
     </task>
+    <task id="LOCAL-00001" summary="feat(users): add userfixtures">
+      <option name="closed" value="true" />
+      <created>1741352314131</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741352314131</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,6 +338,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat(users): add userfixtures" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(users): add userfixtures" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
