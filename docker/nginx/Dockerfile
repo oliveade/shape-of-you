@@ -1,11 +1,5 @@
 # Stage 1: Build assets
-FROM alpine AS builder
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl \
-    nodejs \
-    npm \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+FROM node:lts-alpine AS builder
 
 WORKDIR /var/www
 
@@ -13,7 +7,7 @@ COPY . /var/www
 
 RUN npm install && npm run build
 
-FROM nginx:alpine
+FROM nginx:stable-alpine
 
 COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
 

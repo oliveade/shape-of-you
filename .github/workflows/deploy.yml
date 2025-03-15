@@ -1,13 +1,13 @@
-name: "CD"
+name: deploy
 
 
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["CI"]
+    workflows: [ ci ]
     types: [requested]
     branches:
-      - 'main'
+      - main
 
 env:
   REGISTRY: ghcr.io
@@ -15,13 +15,12 @@ env:
 
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     environment: production
     permissions:
       contents: read
       packages: write
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -40,13 +39,26 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@v6
         with:
+          context: .
+          file: ./docker/php-fpm/Dockerfile
+          platforms: linux/amd64
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-
-      - name: Deploy to Coolify
-        run: |
-          curl --request GET '${{ secrets.COOLIFY_WEBHOOK }}' --header 'Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}'
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
