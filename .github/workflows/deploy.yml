@@ -1,13 +1,13 @@
-name: "Deploy"
+name: deploy
 
 
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["CI"]
+    workflows: [ ci ]
     types: [requested]
     branches:
-      - 'main'
+      - main
 
 env:
   REGISTRY: ghcr.io
@@ -55,9 +55,10 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
+          file: ./docker/php-fpm/Dockerfile
           platforms: linux/amd64
-          push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
