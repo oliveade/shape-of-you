@@ -35,7 +35,7 @@ jobs:
       - name: Cache node modules
         uses: actions/cache@v4
         with:
-          path: npm
+          path: ~/.npm
           key: node-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install Dependencies
@@ -79,7 +79,7 @@ jobs:
       - name: Restore Cache node modules
         uses: actions/cache@v4
         with:
-          path: npm
+          path: ~/.npm
           key: node-${{ hashFiles('**/package-lock.json') }}
 
       - name: Build
@@ -118,12 +118,6 @@ jobs:
         with:
           path: vendor
           key: composer-${{ hashFiles('**/composer.lock') }}
-
-      - name: Restore Cache node modules
-        uses: actions/cache@v4
-        with:
-          path: npm
-          key: node-${{ hashFiles('**/package-lock.json') }}
 
       - name: Run tests
         run: |
