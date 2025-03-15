@@ -1,0 +1,35 @@
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    volumes:
+      - type: bind
+        source: .
+        target: /var/www/public
+      - type: volume
+        target: /var/www/node_modules
+    networks:
+      - symfony-production
+    ports:
+      - "${NGINX_PORT:-80}:80"
+      - "${NGINX_PORT:-443}:443"
+
+  php-fpm:
+    build:
+      context: .
+      dockerfile: ./docker/php-fpm/Dockerfile
+      target: production
+    volumes:
+      - type: bind
+        source: .
+        target: /var/www
+      - type: volume
+        target: /var/www/vendor
+    env_file:
+      - .env
+    networks:
+      - symfony-production
+
+networks:
+  symfony-production:
