@@ -4,11 +4,6 @@
 	<div class="container mx-auto px-4 py-8">
 		<h1 class="text-2xl text-gray-700 font-bold mb-6">Ajouter un vêtement à ma garde-robe</h1>
 		<form action="{{ path('add-garment') }}" method="POST" enctype="multipart/form-data" class="bg-gray-100 grid grid-cols-2 shadow-md rounded px-8 pt-6 pb-8 mb-4">
-
-			<div class="mb-4 mx-2">
-				<label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nom</label>
-				<input type="text" id="name" name="name" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrez le nom du vêtement">
-			</div>
 			<div class="mb-4 mx-2">
 				<label for="type" class="block text-gray-700 text-sm font-bold mb-2">Type</label>
 				<select name="type" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline">
