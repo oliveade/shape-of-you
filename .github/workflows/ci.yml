@@ -51,6 +51,7 @@ jobs:
         uses: docker://oskarstark/php-cs-fixer-ga
         with:
           args: --diff --dry-run
+
   static-analysis:
     name: PHPStan
     needs: [ "deps" ]
