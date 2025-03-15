@@ -57,7 +57,7 @@ jobs:
           context: .
           file: ./docker/php-fpm/Dockerfile
           platforms: linux/amd64
-          tags: ${{ steps.meta.outputs.tags }}:latest
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           push: true
           cache-from: type=gha
