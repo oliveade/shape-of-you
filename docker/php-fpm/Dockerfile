@@ -24,16 +24,14 @@ RUN set -eux; \
 		zip \
         bcmath \
         soap \
-	    yaml \
-	;
+	    yaml;
 
 WORKDIR /var/www
 
-COPY . /var/www
+COPY ./composer.json .
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && composer install --no-dev --optimize-autoloader --no-interaction --no-progress --prefer-dist \
-
+    && composer install --no-dev --optimize-autoloader --no-interaction --no-progress --prefer-dist
 
 # Stage: Production
 FROM php:8.3-fpm AS production
@@ -48,9 +46,9 @@ COPY --from=base /usr/local/bin/docker-php-ext-* /usr/local/bin/
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
-WORKDIR /var/www
+COPY --from=builder /var/www /var/www
 
-COPY --from=base /var/www /var/www
+WORKDIR /var/www
 
 RUN chown -R www-data:www-data /var/www
 
