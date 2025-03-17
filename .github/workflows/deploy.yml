@@ -4,16 +4,15 @@ on:
   workflow_dispatch:
   workflow_run:
     workflows: [ ci ]
-    types: [requested]
-    branches:
-      - main
+    types:
+      - completed
 
 concurrency: production_environment
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: production
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
       - name: Checkout repository
@@ -29,8 +28,9 @@ jobs:
           echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" >> .env.local
           echo "${{ secrets.CONTENT_API_KEY }}" >> .env.local
           echo "${{ secrets.OPENAI_API_KEY }}" >> .env.local
+          composer dump-env prod
           ls -al
-          cat .env.local
+          cat .env.local.php
 
       - name: Deploy
         uses: deployphp/action@v1
