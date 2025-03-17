@@ -15,6 +15,7 @@
         "openai-php/client": "^0.10.3",
         "php-cs-fixer/shim": "^3.70.2",
         "stof/doctrine-extensions-bundle": "^1.13",
+        "symfony/apache-pack": "^1.0",
         "symfony/console": "7.2.*",
         "symfony/dotenv": "7.2.*",
         "symfony/flex": "^2.5.0",
@@ -89,6 +90,7 @@
         }
     },
     "require-dev": {
+        "deployer/deployer": "^7.5",
         "doctrine/doctrine-fixtures-bundle": "^4.0",
         "phpstan/phpstan": "^2.1.7",
         "phpunit/phpunit": "^9.6.22",
