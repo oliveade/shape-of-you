@@ -13,7 +13,7 @@ add('writable_dirs', []);
 
 // Hosts
 
-host('shape-of-you.xyz')
+host('161.35.162.159')
     ->set('remote_user', 'master_mmcdasburj')
     ->set('deploy_path', '~/applications/zdjmyznepe/public_html');
 

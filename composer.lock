@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1fcb677dce6c35a3efc2909e794dceae",
+    "content-hash": "d9efeee97a71cd5825a8c7cc47a5c12d",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1982,16 +1982,16 @@
         },
         {
             "name": "google/protobuf",
-            "version": "v4.30.0",
+            "version": "v4.30.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/protocolbuffers/protobuf-php.git",
-                "reference": "e1d66682f6836aa87820400f0aa07d9eb566feb6"
+                "reference": "f29ba8a30dfd940efb3a8a75dc44446539101f24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/e1d66682f6836aa87820400f0aa07d9eb566feb6",
-                "reference": "e1d66682f6836aa87820400f0aa07d9eb566feb6",
+                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/f29ba8a30dfd940efb3a8a75dc44446539101f24",
+                "reference": "f29ba8a30dfd940efb3a8a75dc44446539101f24",
                 "shasum": ""
             },
             "require": {
@@ -2020,9 +2020,9 @@
                 "proto"
             ],
             "support": {
-                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v4.30.0"
+                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v4.30.1"
             },
-            "time": "2025-03-04T22:54:49+00:00"
+            "time": "2025-03-13T21:08:17+00:00"
         },
         {
             "name": "grpc/grpc",
@@ -2589,16 +2589,16 @@
         },
         {
             "name": "php-cs-fixer/shim",
-            "version": "v3.70.2",
+            "version": "v3.72.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/shim.git",
-                "reference": "ff041542719ad3be54bd34647d0fd5bc7900115e"
+                "reference": "f5131b7a7d0103919a1b478a2763bd76c98e472e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/shim/zipball/ff041542719ad3be54bd34647d0fd5bc7900115e",
-                "reference": "ff041542719ad3be54bd34647d0fd5bc7900115e",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/shim/zipball/f5131b7a7d0103919a1b478a2763bd76c98e472e",
+                "reference": "f5131b7a7d0103919a1b478a2763bd76c98e472e",
                 "shasum": ""
             },
             "require": {
@@ -2635,9 +2635,9 @@
             "description": "A tool to automatically fix PHP code style",
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/shim/issues",
-                "source": "https://github.com/PHP-CS-Fixer/shim/tree/v3.70.2"
+                "source": "https://github.com/PHP-CS-Fixer/shim/tree/v3.72.0"
             },
-            "time": "2025-03-03T21:07:46+00:00"
+            "time": "2025-03-13T11:26:00+00:00"
         },
         {
             "name": "php-http/discovery",
@@ -9294,16 +9294,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.7",
+            "version": "2.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "12567f91a74036d56ba0af6d56c8e73ac0e8d850"
+                "reference": "f9adff3b87c03b12cc7e46a30a524648e497758f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/12567f91a74036d56ba0af6d56c8e73ac0e8d850",
-                "reference": "12567f91a74036d56ba0af6d56c8e73ac0e8d850",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/f9adff3b87c03b12cc7e46a30a524648e497758f",
+                "reference": "f9adff3b87c03b12cc7e46a30a524648e497758f",
                 "shasum": ""
             },
             "require": {
@@ -9348,7 +9348,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-05T13:43:55+00:00"
+            "time": "2025-03-09T09:30:48+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -11437,16 +11437,16 @@
         },
         {
             "name": "zenstruck/foundry",
-            "version": "v2.3.6",
+            "version": "v2.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/foundry.git",
-                "reference": "4a647475f7f65f52b238db8b82c55df5dc3bf6fa"
+                "reference": "8356b539f11af8786339a952fd71e6e15b40fb14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/4a647475f7f65f52b238db8b82c55df5dc3bf6fa",
-                "reference": "4a647475f7f65f52b238db8b82c55df5dc3bf6fa",
+                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/8356b539f11af8786339a952fd71e6e15b40fb14",
+                "reference": "8356b539f11af8786339a952fd71e6e15b40fb14",
                 "shasum": ""
             },
             "require": {
@@ -11530,7 +11530,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/foundry/issues",
-                "source": "https://github.com/zenstruck/foundry/tree/v2.3.6"
+                "source": "https://github.com/zenstruck/foundry/tree/v2.3.8"
             },
             "funding": [
                 {
@@ -11538,7 +11538,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-02-25T18:18:47+00:00"
+            "time": "2025-03-14T13:49:16+00:00"
         }
     ],
     "aliases": [],
