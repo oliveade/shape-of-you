@@ -18,16 +18,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Add environment variables
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+
+      - name: Install dependencies
         run: |
-          echo "${{ vars.APP_ENV }}" >> .env.local
-          echo "${{ secrets.APP_SECRET }}" >> .env.local
-          echo "${{ secrets.DATABASE_URL }}" >> .env.local
-          echo "${{ secrets.MAILER_DSN }}" >> .env.local
-          echo "${{ secrets.MAILER_RESEND_SECRET }}" >> .env.local
-          echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" >> .env.local
-          echo "${{ secrets.CONTENT_API_KEY }}" >> .env.local
-          echo "${{ secrets.OPENAI_API_KEY }}" >> .env.local
+          export APP_ENV=prod APP_DEBUG=0
+          composer install --prefer-dist --no-interaction --no-progress --no-dev --optimize-autoloader
+          echo "APP_ENV=${{ vars.APP_ENV }}" >> .env.local
+          echo "APP_SECRET=${{ secrets.APP_SECRET }}" >> .env.local
+          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env.local
+          echo "MAILER_DSN=${{ secrets.MAILER_DSN }}" >> .env.local
+          echo "MAILER_RESEND_SECRET=${{ secrets.MAILER_RESEND_SECRET }}" >> .env.local
+          echo "GOOGLE_APPLICATION_CREDENTIALS=${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" >> .env.local
+          echo "CONTENT_API_KEY=${{ secrets.CONTENT_API_KEY }}" >> .env.local
+          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> .env.local
 
       - name: Deploy
         uses: deployphp/action@v1
