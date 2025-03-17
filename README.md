@@ -7,7 +7,7 @@ A revoir <br />
 Shape of you est une application mobile-first qui a pour objectif d'aider les personnes qui souhaitent être accompagnées pour "mieux" s'habiller. Choix des vêtements, morphologie, tendances, conseils, seconde main, eco-conception, upcycling, couture, customisation, etc.
 </p>
 
-![Deploy](https://github.com/oliveade/shape-of-you/workflows/Deploy/badge.svg)
+![CI](https://github.com/oliveade/shape-of-you/workflows/CI/badge.svg)
 
 ### Table of Contents
 
