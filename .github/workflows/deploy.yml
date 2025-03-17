@@ -6,8 +6,6 @@ on:
     workflows: [ci]
     types:
       - completed
-    branches:
-      - main
 
 concurrency: production_environment
 
