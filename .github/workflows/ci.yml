@@ -4,9 +4,19 @@ on:
   pull_request:
     branches-ignore:
       - main
+    types: [
+      opened,
+      synchronize,
+      reopened,
+    ]
   push:
     branches-ignore:
       - main
+  workflow_call:
+
+concurrency:
+  group: ${{ github.repository }}-${{ github.workflow }}-${{ github.ref }}-${{ github.ref == 'refs/heads/main' && github.sha || ''}}
+  cancel-in-progress: true
 
 jobs:
   deps:
