@@ -1,6 +1,5 @@
 name: deploy
 
-
 on:
   workflow_dispatch:
   workflow_run:
@@ -9,56 +8,32 @@ on:
     branches:
       - main
 
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-
+concurrency: production_environment
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: production
-    permissions:
-      contents: read
-      packages: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+      - name: Add environment variables
+        run: |
+          echo "${{ vars.APP_ENV }}" >> .env.local
+          echo "${{ secrets.APP_SECRET }}" >> .env.local
+          echo "${{ secrets.DATABASE_URL }}" >> .env.local
+          echo "${{ secrets.MAILER_DSN }}" >> .env.local
+          echo "${{ secrets.MAILER_RESEND_SECRET }}" >> .env.local
+          echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" >> .env.local
+          echo "${{ secrets.CONTENT_API_KEY }}" >> .env.local
+          echo "${{ secrets.OPENAI_API_KEY }}" >> .env.local
+          ls -al
+          cat .env.local
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Log into registry ${{ env.REGISTRY }}
-        if: github.event_name != 'pull_request'
-        uses: docker/login-action@v3
+      - name: Deploy
+        uses: deployphp/action@v1
         with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-
-      - name: Build and push Docker image
-        id: build-and-push
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: ./docker/php-fpm/Dockerfile
-          platforms: linux/amd64
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          push: true
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          private-key: ${{ secrets.PRIVATE_KEY }}
+          dep: deploy

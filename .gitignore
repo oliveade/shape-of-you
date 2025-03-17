@@ -35,3 +35,4 @@ phpstan.neon
 
 .idea
 .DS_Store
+.env
