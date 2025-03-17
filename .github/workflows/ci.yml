@@ -2,11 +2,15 @@ name: ci
 
 on:
   pull_request:
-    branches-ignore:
       - main
   push:
     branches-ignore:
       - main
+  workflow_call:
+
+concurrency:
+  group: ${{ github.repository }}-${{ github.workflow }}-${{ github.ref }}-${{ github.ref == 'refs/heads/main' && github.sha || ''}}
+  cancel-in-progress: true
 
 jobs:
   deps:

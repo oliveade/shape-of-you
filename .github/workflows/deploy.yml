@@ -1,11 +1,11 @@
 name: deploy
 
 on:
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
-
+  workflow_run:
+    workflows: [ 'ci' ]
+    types:
+      - completed
 
 concurrency: production_environment
 
@@ -29,9 +29,6 @@ jobs:
           echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" >> .env.local
           echo "${{ secrets.CONTENT_API_KEY }}" >> .env.local
           echo "${{ secrets.OPENAI_API_KEY }}" >> .env.local
-          composer dump-env prod
-          ls -al
-          cat .env.local.php
 
       - name: Deploy
         uses: deployphp/action@v1
