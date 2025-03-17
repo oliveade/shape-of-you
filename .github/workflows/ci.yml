@@ -2,7 +2,7 @@ name: ci
 
 on:
   pull_request:
-      - main
+    - main
   push:
     branches-ignore:
       - main
