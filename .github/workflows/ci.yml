@@ -139,7 +139,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          export APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear
+          export APP_ENV=dev
           echo "APP_ENV=$APP_ENV"
           echo "APP_SECRET=${{ secrets.APP_SECRET }}" >> .env.local
           echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env.local
